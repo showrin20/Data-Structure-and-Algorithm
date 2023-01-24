@@ -56,3 +56,61 @@ while True:
     a=input("Play again(Y/N): ")
     if a.upper()=="N":
         break
+
+"""
+Output:
+Welcome to Rock Paper Scissor Game
+Game rules:
+1.Rock is deafeated By paper
+2.Paper is defeated by scissors
+3.Scissor is defeated by Rock
+4.If bothinputs are same game draw
+Enter 1 for Rock
+2.Enter 2 for Paper
+3.Enter 3 for Scissor
+Choose one option:
+1.Rock
+2.Paper
+3.Scissor
+3
+My Input scissors
+Computer Input rock
+
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+
+You lose
+Play again(Y/N): y
+Choose one option:
+1.Rock
+2.Paper
+3.Scissor
+2
+My Input paper
+Computer Input rock
+You win
+Play again(Y/N): y
+Choose one option:
+1.Rock
+2.Paper
+3.Scissor
+3
+My Input scissors
+Computer Input rock
+
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+
+You lose
+Play again(Y/N): N
+
+Process finished with exit code 0
+"""
