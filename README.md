@@ -36,3 +36,6 @@ Understanding the time complexity of algorithms is crucial for evaluating their 
 
 The time complexity analysis for each algorithm is provided in the respective module's documentation. It includes a discussion of the algorithm's time complexity in each of the scenarios mentioned above, allowing you to evaluate the algorithm's performance characteristics and make informed decisions based on your specific use case.
 
+# **Bubble sort:** repeatedly compares adjacent elements and swaps them if they are in the wrong order
+Bubble sort is a simple sorting algorithm that repeatedly steps through the list,compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm gets its name from the way smaller or larger elements "bubble" to the top of the list as the sort progresses. 
+<br>While it is easy to understand and implement, bubble sort is not efficient for large data sets as its **time complexity is O(n^2)**.
