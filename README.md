@@ -1,95 +1,27 @@
-Master Python by building 100 projects in 100 days. Learn data science, automation, build websites, games and apps! by Dr. Angela Yu
+In this repository, you will find Python implementations of popular data structures and algorithms. These implementations serve as examples and learning resources for those interested in understanding how these concepts work and how they can be implemented in Python.
 
-Python 3 - the latest version of Python
+## Data Structures
 
-PyCharm, Jupyter Notebook, Google Colab
+The repository currently includes implementations of the following data structures:
 
-Python Scripting and Automation
+- Array
+- Linked List
+- Stack
+- Queue
+- Binary Tree
+- Heap
+- Hash Table
+- Graph
 
-Python Game Development
+Each data structure is implemented as a separate Python module and includes the necessary operations and functionalities associated with that particular data structure.
 
-Web Scraping
+## Algorithms
 
-Beautiful Soup
+The repository also includes implementations of various algorithms, including:
 
-Selenium Web Driver
+- Sorting Algorithms (e.g., Bubble Sort, Merge Sort, Quick Sort)
+- Searching Algorithms (e.g., Linear Search, Binary Search)
+- Graph Algorithms (e.g., Breadth-First Search, Depth-First Search, Dijkstra's Algorithm)
+- Dynamic Programming Algorithms (e.g., Fibonacci Sequence, Knapsack Problem)
 
-Request
-
-WTForms
-
-Data Science
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Plotly
-
-Scikit learn
-
-Seaborn
-
-Turtle
-
-Python GUI Desktop App Development
-
-Tkinter
-
-Front-End Web Development
-
-HTML 5
-
-CSS 3
-
-Bootstrap 4
-
-Bash Command Line
-
-Git, GitHub and Version Control
-
-Backend Web Development
-
-Flask
-
-REST
-
-APIs
-
-Databases
-
-SQL
-
-SQLite
-
-PostgreSQL
-
-Authentication
-
-Web Design
-
-Deployment with GitHub Pages, Heroku and GUnicorn
-
-Blackjack
-
-Snake Game
-
-Pong Game
-
-Auto Swipe on Tinder
-
-Auto Job Applications on LinkedIn
-
-Automate Birthday Emails/SMS
-
-Fully Fledged Blog Website
-
-Build Your Own Public API
-
-Data Science with Google Trends
-
-Analysing Lego Datasets
-
-Google App Store Analysis
+Similar to the data structures, each algorithm is implemented as a separate Python module and includes the necessary functions and methods to perform the desired operations.
