@@ -1,5 +1,7 @@
 In this repository, you will find Python implementations of popular data structures and algorithms. These implementations serve as examples and learning resources for those interested in understanding how these concepts work and how they can be implemented in Python.
 
+## [Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
+
 ## Data Structures
 
 The repository currently includes implementations of the following data structures:
@@ -47,3 +49,6 @@ Bubble sort is a simple sorting algorithm that repeatedly steps through the list
 The **time complexity of selection sort is O(n^2)** as it involves nested loops to find the minimum element and swap it with the current element.
 
 The space complexity of selection sort is O(1) as it only requires a single temporary variable for swapping elements and does not require any additional memory allocation.
+
+
+
