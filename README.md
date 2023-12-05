@@ -3,7 +3,7 @@ In this repository, you will find implementations of popular data structures and
 
 **Resources:**
 ## 1.[Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
-## 2.[Data Structures and Algorithm ](https://www.codingninjas.com/studio/guided-paths/data-structures-algorithms?utm_source=youtube&utm_medium=organic&utm_campaign=dsa_roadmap_20_apr)
+## 2.[Data Structures and Algorithm Coding Ninjas](https://www.codingninjas.com/studio/guided-paths/data-structures-algorithms?utm_source=youtube&utm_medium=organic&utm_campaign=dsa_roadmap_20_apr)
 
 This repository contains implementations of various data structures and algorithms in different programming languages. The code is organized into categories for easy navigation.
 
