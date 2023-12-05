@@ -1,21 +1,77 @@
 In this repository, you will find implementations of popular data structures and algorithms. These implementations serve as examples and learning resources for those interested in understanding how these concepts work and how they can be implemented
 
-## [Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
+## 1.[Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
+## 2.[Data Structures and Algorithm ](https://www.codingninjas.com/studio/guided-paths/data-structures-algorithms?utm_source=youtube&utm_medium=organic&utm_campaign=dsa_roadmap_20_apr)
 
 ## Data Structures
 
 The repository currently includes implementations of the following data structures:
 
-- Array
-- Linked List
-- Stack
-- Queue
-- Binary Tree
-- Heap
-- Hash Table
-- Graph
+Arrays & Strings
+Basic Array And Strings Questions
+Kadane's Algorithm
+Dutch National Flag Algorithm
+Sliding Window
+Two pointers
+Multidimensional arrays
+Traversal Based Problems
+Rotation Based Problems
+Recursion And Backtracking
+Basic Recursion Questions
+Divide And Conquer
+Sorting Algoritms
+Insertion Sort
+Selection Sort
+Binary Search Applications
+Binary Search On Arrays
+Binary Search On Matrix
+Linked Lists
+Reversal Problems
+Sorting Problems
+Slow And Fast Pointers
+Modify In Linked list
+Stacks & Queues
+Implementation Based Problems
+Application Based Problems
+Binary Trees
+Tree Traversals
+Construction Of Trees
+Tree Views
+Standard Problems
+BST
+Construction Of BST
+Conversion Based Problems
+Modification in BST
+Standard Problems 
+Priority Queues And Heaps
+Implementation Based problems
+Conversion based problems
+K Based Problems
+Graphs
+Graph Traversals - BFS And DFS
+MST
+Shortest Path Algorithms
+Topological Sort
+Graphs in Matrix
+Dynamic Programming
+DP with Arrays
+DP With Strings
+DP With Maths
+DP With Trees
+Breaking And Partition Based Problems
+Counting Based Problems
+Hard Recursion And Backtracking Questions
+Other Topics
+Hashmaps
+Tries
+Bit Manipulation
+Greedy
+Circular Queues
+Deques - Hot Topic
+Doubly And Circular LL
+String Algorithms like KMP and Z Algorithm
 
-Each data structure is implemented as a separate Python module and includes the necessary operations and functionalities associated with that particular data structure.
+
 
 ## Algorithms
 
