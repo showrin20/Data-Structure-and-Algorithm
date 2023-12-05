@@ -1,4 +1,4 @@
-### Data Structures and Algorithms
+# Data Structures and Algorithms
 In this repository, you will find implementations of popular data structures and algorithms. 
 
 **Resources:**
