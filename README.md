@@ -1,4 +1,4 @@
-In this repository, you will find Python implementations of popular data structures and algorithms. These implementations serve as examples and learning resources for those interested in understanding how these concepts work and how they can be implemented in Python.
+In this repository, you will find implementations of popular data structures and algorithms. These implementations serve as examples and learning resources for those interested in understanding how these concepts work and how they can be implemented
 
 ## [Strivers A2Z DSA Course/Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
 
