@@ -71,6 +71,4 @@ bubble_sort(lst)  # Output: [9, 12, 14, 18, 22]
   - Best case with optimization: O(n)
 - **Space Complexity**: O(1) (in-place sorting)
 - **Stability**: Bubble Sort is a stable sorting algorithm.
-- **Optimization**: The `swapped` flag helps reduce unnecessary passes when the list is already sorted.
-```
-
+- **Optimization**: The `swapped` flag helps reduce unnecessary passes when the list is already sorted.```
