@@ -76,6 +76,66 @@ arr = [3, 9, 11, 55, 77]
 key = 9
 result = binary_search(arr, key)
 print("Index of key:", result)
+```
+
+
+# Ternary Search Algorithm
+
+## Overview
+Ternary Search is a divide-and-conquer search algorithm similar to Binary Search but divides the search range into three parts instead of two. It’s used on sorted arrays to find a target value by recursively narrowing down the search range to either the left, middle, or right third.
+
+## Key Points
+- **Algorithm Type**: Divide and Conquer
+- **Time Complexity**: 
+  - Best Case: O(1) (if the key is found at the first check)
+  - Average and Worst Case: O(log₃ n) (slightly slower than binary search in practice due to more comparisons)
+- **Space Complexity**: O(1) (iterative) or O(log₃ n) (recursive)
+- **Requirement**: The array must be sorted.
+- **Use Case**: Primarily used in specific cases where ternary divisions can be leveraged, though often outperformed by binary search in most general use cases.
+
+## How It Works
+1. Define the search range from the start (`l`) to the end (`r`) of the array.
+2. Divide this range into three parts by calculating two middle points: `mid1` and `mid2`.
+   - `mid1 = l + (r - l) // 3`
+   - `mid2 = r - (r - l) // 3`
+3. Compare the target (`key`) with elements at `mid1` and `mid2`:
+   - If the key matches `arr[mid1]`, return `mid1`.
+   - If the key matches `arr[mid2]`, return `mid2`.
+4. If the key is less than `arr[mid1]`, search in the left third.
+5. If the key is greater than `arr[mid2]`, search in the right third.
+6. If the key lies between `arr[mid1]` and `arr[mid2]`, search in the middle third.
+7. Repeat steps 2-6 until the key is found or the search range is empty.
+
+## Implementation
+```python
+def ternary_search(arr, key):
+    l = 0
+    r = len(arr) - 1
+    
+    while l <= r:
+        mid1 = l + (r - l) // 3
+        mid2 = r - (r - l) // 3
+
+        if arr[mid1] == key:
+            return mid1
+        elif arr[mid2] == key:
+            return mid2
+
+        if key < arr[mid1]:
+            r = mid1 - 1
+        elif key > arr[mid2]:
+            l = mid2 + 1
+        else:
+            l = mid1 + 1
+            r = mid2 - 1
+
+    return -1
+
+# Example with a sorted array
+arr = [1, 5, 9, 12, 15, 20, 25]
+key = 12
+result = ternary_search(arr, key)
+print("Index of key:", result)
 
 
 
