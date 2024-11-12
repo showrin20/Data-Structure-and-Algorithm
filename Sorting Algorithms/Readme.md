@@ -83,4 +83,43 @@ def selection_sort(arr):
 arr = [64, 25, 12, 22, 11]
 sorted_arr = selection_sort(arr)
 print("Sorted array:", sorted_arr)
+```
+# Insertion Sort Algorithm
 
+## Overview
+Insertion Sort is a simple and efficient comparison-based sorting algorithm that builds the sorted array one item at a time by repeatedly inserting each element into its correct position relative to the already sorted part of the array. It is commonly used for small datasets or as part of more complex sorting algorithms.
+
+## Key Points
+- **Algorithm Type**: Comparison Sort
+- **Time Complexity**:
+  - Best Case: O(n) (when the array is already sorted)
+  - Average and Worst Case: O(n²)
+- **Space Complexity**: O(1) (in-place sorting)
+- **Stable Sort**: Yes
+- **Use Case**: Best for small datasets, nearly sorted arrays, or when simplicity is required.
+
+## How It Works
+1. Start from the first element and consider it "sorted."
+2. For each element at position `i` in the array:
+   - Store the element in a temporary variable (`temp`).
+   - Compare it with elements before it in the sorted section of the array.
+   - Shift elements larger than `temp` to the right.
+   - Insert `temp` at the correct position once the sorted order is maintained.
+3. Repeat this process until the entire array is sorted.
+
+## Implementation
+```python
+def insertion_sort(arr):
+    for i in range(len(arr)):
+        temp = arr[i]
+        j = i - 1
+        while j >= 0 and temp < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = temp
+    print(arr)
+
+# Example usage
+arr = [48, 99, 4, 60, 22]
+insertion_sort(arr)  # Output: [4, 22, 48, 60, 99]
+```
