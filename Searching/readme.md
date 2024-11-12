@@ -77,7 +77,27 @@ key = 9
 result = binary_search(arr, key)
 print("Index of key:", result)
 ```
+### Binary Search Recursive
 
+```
+def binary_search(arr, target, low, high):
+    # Base case: if low exceeds high, the target is not in the array
+    if low > high:
+        return -1  # Target not found
+
+    # Find the middle index
+    mid = (low + high) // 2
+
+    # Check if the target is at the middle
+    if arr[mid] == target:
+        return mid  # Target found at mid index
+    # If the target is smaller, search the left half
+    elif arr[mid] > target:
+        return binary_search(arr, target, low, mid - 1)
+    # If the target is larger, search the right half
+    else:
+        return binary_search(arr, target, mid + 1, high)
+```
 
 # Ternary Search Algorithm
 
@@ -136,7 +156,35 @@ arr = [1, 5, 9, 12, 15, 20, 25]
 key = 12
 result = ternary_search(arr, key)
 print("Index of key:", result)
+```
 
 
+### Ternary Search Recursive
+
+```
+def ternary_search(arr, target, low, high):
+    # Base case: if low exceeds high, the target is not in the array
+    if low > high:
+        return -1  # Target not found
+
+    # Calculate the first and second mid points
+    mid1 = low + (high - low) // 3
+    mid2 = high - (high - low) // 3
+
+    # Check if the target is at either of the mid points
+    if arr[mid1] == target:
+        return mid1
+    elif arr[mid2] == target:
+        return mid2
+
+    # Decide which part to search based on the target value
+    if target < arr[mid1]:  # Search in the first third
+        return ternary_search(arr, target, low, mid1 - 1)
+    elif target > arr[mid2]:  # Search in the third third
+        return ternary_search(arr, target, mid2 + 1, high)
+    else:  # Search in the middle third
+        return ternary_search(arr, target, mid1 + 1, mid2 - 1)
+
+```
 
 
