@@ -14,7 +14,7 @@
 6. Kadane's Algorithm
 
 ### **Maximum Subarray Problem**
-![Simulation]()
+![Simulation](max_subarray.png)
 - **Problem Statement**: Find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.  
 - **Algorithm**: Kadane's Algorithm  
 - **Key Points**:  
