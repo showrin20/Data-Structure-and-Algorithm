@@ -20,7 +20,7 @@
 2. Divide and Conquer
 3. Hard Recursion and Backtracking Questions
 
-## Sorting Algorithms
+## [Sorting Algorithms](https://github.com/showrin20/Data-Structure-and-Algorithm/tree/main/Sorting%20Algorithms)
 1. Insertion Sort
 2. Selection Sort
 3. Merge Sort
