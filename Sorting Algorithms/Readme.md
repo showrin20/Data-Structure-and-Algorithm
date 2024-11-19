@@ -123,3 +123,61 @@ def insertion_sort(arr):
 arr = [48, 99, 4, 60, 22]
 insertion_sort(arr)  # Output: [4, 22, 48, 60, 99]
 ```
+
+
+# Quick Sort Algorithm
+
+## Overview
+Quick Sort is an efficient, comparison-based, divide-and-conquer sorting algorithm. It works by selecting a 'pivot' element and partitioning the other elements into two groups - those less than the pivot and those greater. It then recursively sorts the partitions.
+
+## Key Points
+- **Algorithm Type**: Divide and Conquer, Comparison Sort
+- **Time Complexity**:
+  - Best and Average Case: `O(n log n)`
+  - Worst Case: `O(n^2)` (occurs when pivot selection leads to unbalanced partitions)
+- **Space Complexity**: `O(log n)` (due to recursive calls)
+- **Stable Sort**: No
+- **Use Case**: Efficient for large datasets, especially when in-place sorting is required.
+
+## How It Works
+1. Choose a pivot element from the array.
+2. Partition the array around the pivot, placing smaller elements to the left and larger ones to the right.
+3. Recursively apply this process to the left and right sub-arrays until the entire array is sorted.
+
+## Code Example
+
+```python
+def partition(arr, l, h):
+    pivot = l
+    while l < h:
+        while l < h and arr[l] <= arr[pivot]:
+            l += 1
+        while l < h and arr[h] >= arr[pivot]:
+            h -= 1
+        arr[l], arr[h] = arr[h], arr[l]
+    arr[h], arr[pivot] = arr[pivot], arr[h]
+    return h
+
+def quick_sort(arr, l, h):
+    if l < h:
+        p_index = partition(arr, l, h)
+        quick_sort(arr, l, p_index - 1)
+        quick_sort(arr, p_index + 1, h)
+    return arr
+
+arr = [10, 7, 8, 9, 1, 5]
+print("Unsorted Array:", arr)
+sorted_arr = quick_sort(arr, 0, len(arr) - 1)
+print("Sorted Array:", sorted_arr)
+```
+
+## Example Output
+```
+Unsorted Array: [10, 7, 8, 9, 1, 5]
+Sorted Array: [1, 5, 7, 8, 9, 10]
+```
+
+
+
+
+
