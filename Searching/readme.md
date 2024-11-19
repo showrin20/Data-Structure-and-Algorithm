@@ -97,7 +97,7 @@ def binary_search(arr, target, low, high):
     # If the target is larger, search the right half
     else:
         return binary_search(arr, target, mid + 1, high)
-```
+```python
 
 # Ternary Search Algorithm
 
@@ -161,7 +161,7 @@ print("Index of key:", result)
 
 ### Ternary Search Recursive
 
-```
+```python
 def ternary_search(arr, target, low, high):
     # Base case: if low exceeds high, the target is not in the array
     if low > high:
