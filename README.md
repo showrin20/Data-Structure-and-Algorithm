@@ -14,7 +14,6 @@
 6. Kadane's Algorithm
 
 ### **Maximum Subarray Problem**
-![Simulation](max_subarray.png)
 - **Problem Statement**: Find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.  
 - **Algorithm**: Kadane's Algorithm  
 - **Key Points**:  
@@ -48,6 +47,64 @@ print("Maximum Subarray Sum:", max_subarray(arr))
 1. Basic Recursion Questions
 2. Divide and Conquer
 3. Hard Recursion and Backtracking Questions
+
+### **Divide and Conquer: Maximum Subarray Sum**
+- **Problem Statement**: Find the contiguous subarray with the largest sum in an array using the Divide and Conquer approach.  
+- **Key Idea**:
+  - Divide the array into two halves.
+  - Conquer each half recursively to find the maximum subarray sum in the left and right halves.
+  - Combine the results by finding the maximum subarray sum that crosses the midpoint.  
+
+![Simulation](max_subarray.png)
+
+### **Code Implementation**
+```python
+def max_crossing_sum(nums, left, mid, right):
+    # Find the maximum sum on the left half
+    left_sum = float('-inf')
+    temp_sum = 0
+    for i in range(mid, left - 1, -1):
+        temp_sum += nums[i]
+        if temp_sum > left_sum:
+            left_sum = temp_sum
+
+    # Find the maximum sum on the right half
+    right_sum = float('-inf')
+    temp_sum = 0
+    for i in range(mid + 1, right + 1):
+        temp_sum += nums[i]
+        if temp_sum > right_sum:
+            right_sum = temp_sum
+
+    # Return the sum of the left and right parts
+    return left_sum + right_sum
+
+def max_subarray_divide_and_conquer(nums, left, right):
+    # Base case: only one element
+    if left == right:
+        return nums[left]
+
+    # Find the middle point
+    mid = (left + right) // 2
+
+    # Recursively find the maximum subarray sum in left, right, and cross
+    left_max = max_subarray_divide_and_conquer(nums, left, mid)
+    right_max = max_subarray_divide_and_conquer(nums, mid + 1, right)
+    cross_max = max_crossing_sum(nums, left, mid, right)
+
+    # Return the maximum of the three
+    return max(left_max, right_max, cross_max)
+
+# Example usage:
+arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+print("Maximum Subarray Sum (Divide and Conquer):", max_subarray_divide_and_conquer(arr, 0, len(arr) - 1))
+```
+
+### **Time Complexity**
+- **Divide Step**: O(1) (Finding the middle index).  
+- **Conquer Step**: Recursively solving two subproblems of size \(n/2\).  
+- **Combine Step**: O(n) (Calculating the crossing sum).  
+- **Total Complexity**: \(O(n \log n)\). 
 
 ## [Sorting Algorithms](https://github.com/showrin20/Data-Structure-and-Algorithm/tree/main/Sorting%20Algorithms)
 1. Insertion Sort
