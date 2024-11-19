@@ -12,8 +12,36 @@
 4. Sliding Window
 5. Two Pointers
 6. Kadane's Algorithm
-7. Dutch National Flag Algorithm
-8. Multidimensional Arrays
+
+### **Maximum Subarray Problem**
+- **Problem Statement**: Find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.  
+- **Algorithm**: Kadane's Algorithm  
+- **Key Points**:  
+  - Initialize `max_current` and `max_global` to the first element of the array.  
+  - Iterate through the array, updating `max_current` as `max(array[i], max_current + array[i])`.  
+  - Update `max_global` whenever `max_current > max_global`.  
+- **Attach Image/Diagram**:  
+  *(Insert an image explaining the working of Kadane's Algorithm for Maximum Subarray)*
+
+### **Code Implementation**
+```python
+def max_subarray(nums):
+    max_current = nums[0]
+    max_global = nums[0]
+
+    for i in range(1, len(nums)):
+        max_current = max(nums[i], max_current + nums[i])
+        if max_current > max_global:
+            max_global = max_current
+
+    return max_global
+
+# Example usage:
+arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+print("Maximum Subarray Sum:", max_subarray(arr))
+```
+8. Dutch National Flag Algorithm
+9. Multidimensional Arrays
 
 ## Recursion and Backtracking
 1. Basic Recursion Questions
