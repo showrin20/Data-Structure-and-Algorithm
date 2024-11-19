@@ -147,25 +147,30 @@ Quick Sort is an efficient, comparison-based, divide-and-conquer sorting algorit
 ## Code Example
 
 ```python
-def partition(arr, l, h):
-    pivot = l
-    while l < h:
-        while l < h and arr[l] <= arr[pivot]:
-            l += 1
-        while l < h and arr[h] >= arr[pivot]:
-            h -= 1
-        arr[l], arr[h] = arr[h], arr[l]
-    arr[h], arr[pivot] = arr[pivot], arr[h]
-    return h
+def partition(arr, low, high):
+    pivot = arr[low]
+    i = low
+    j = high
 
-def quick_sort(arr, l, h):
-    if l < h:
-        p_index = partition(arr, l, h)
-        quick_sort(arr, l, p_index - 1)
-        quick_sort(arr, p_index + 1, h)
+    while i < j:
+        while i < high and arr[i] <= pivot:
+            i += 1
+        while j > low and arr[j] > pivot:
+            j -= 1
+        if i < j:
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[low], arr[j] = arr[j], arr[low]
+    return j
+
+def quick_sort(arr, low, high):
+    if low < high:
+        pIndex = partition(arr, low, high)
+        quick_sort(arr, low, pIndex - 1)
+        quick_sort(arr, pIndex + 1, high)
     return arr
 
-arr = [10, 7, 8, 9, 1, 5]
+arr = [9, 4, 3, 15, 20, 2, 24, 30, 11, 35]
 print("Unsorted Array:", arr)
 sorted_arr = quick_sort(arr, 0, len(arr) - 1)
 print("Sorted Array:", sorted_arr)
