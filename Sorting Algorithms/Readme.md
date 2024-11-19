@@ -181,8 +181,73 @@ print("Sorted Array:", sorted_arr)
 Unsorted Array: [10, 7, 8, 9, 1, 5]
 Sorted Array: [1, 5, 7, 8, 9, 10]
 ```
+# Merge Sort Algorithm
 
+## Overview
+Merge Sort is a popular comparison-based sorting algorithm that employs the **divide and conquer** strategy. The array is repeatedly split into halves, and the halves are recursively sorted and then merged back together. This ensures that the entire array is sorted efficiently.
 
+## Key Points
+- **Algorithm Type**: Divide and Conquer, Comparison Sort
+- **Time Complexity**:
+  - Best, Average, and Worst Case: `O(n log n)` (The divide and merge process has a logarithmic depth)
+- **Space Complexity**: `O(n)` (due to auxiliary storage for merging)
+- **Stable Sort**: Yes
+- **Use Case**: Suitable for large datasets where stability is important, but not ideal for in-place sorting.
 
+## How It Works
+1. The array is recursively divided into two halves until single-element arrays are obtained.
+2. The single-element arrays are merged in sorted order, creating larger sorted arrays until the entire array is merged back.
+3. During merging, the values are compared and appended to a result array to maintain order.
 
+## Code Example
 
+```python
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    # Calculate the middle index
+    mid = len(arr) // 2
+
+    # Split the array into left and right halves
+    left = arr[:mid]
+    right = arr[mid:]
+
+    # Recursively split and sort each half
+    sorted_left = merge_sort(left)
+    sorted_right = merge_sort(right)
+
+    # Merge the sorted halves
+    return merge(sorted_left, sorted_right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+
+    # Compare elements from both halves and merge them in sorted order
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    # Append any remaining elements from the left or right halves
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+# Example usage
+arr = [38, 27, 43, 3, 9, 82, 10]
+print("Unsorted Array:", arr)
+sorted_arr = merge_sort(arr)
+print("Sorted Array:", sorted_arr)
+```
+
+## Example Output
+```
+Unsorted Array: [38, 27, 43, 3, 9, 82, 10]
+Sorted Array: [3, 9, 10, 27, 38, 43, 82]
+```
