@@ -97,7 +97,8 @@ def binary_search(arr, target, low, high):
     # If the target is larger, search the right half
     else:
         return binary_search(arr, target, mid + 1, high)
-```python
+```
+
 
 # Ternary Search Algorithm
 
