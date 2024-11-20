@@ -190,45 +190,63 @@ In this repository, we provide time complexity analysis for each algorithm based
 - **Average Case**: This represents the scenario where the algorithm takes an average amount of time to run, typically occurring when the input data is randomly distributed.
 
 
-# Master Theorem for Recurrence Relations
+# Master Theorem Overview
 
-This guide explains the **Master Theorem** for solving recurrence relations often found in algorithm analysis, especially in divide-and-conquer problems.
+## Purpose
+This guide explains the **Master Theorem**, a tool for solving recurrence relations in divide-and-conquer and subtract-and-conquer algorithms. It helps in analyzing algorithmic runtimes.
 
-The **Master Theorem** helps derive asymptotic bounds for recurrence relations of the form:
 
-**\[ T(n) = aT(n/b) + c n^k \]**
 
-where:
-- **a ≥ 1**, **b > 1** are constants.
-- **c n^k** represents the cost outside recursive calls.
+## Master Theorem for Divide and Conquer Recurrences
+The general recurrence is:
 
-It also handles recurrences of the form:
+**T(n) = aT(n/b) + f(n)**  
+Where:
+- `n` = Problem size  
+- `a` = Number of subproblems (`a ≥ 1`)  
+- `n/b` = Size of each subproblem  
+- `f(n)` = Cost outside recursive calls (dividing/combining subproblems)  
 
-**\[ T(n) = a T(n - b) + c n^k \]**
+### Cases:
+1. **If a > b^k**  
+   **T(n) = Θ(n^(log_b(a)))**  
+2. **If a = b^k**  
+   - `p > -1`: **T(n) = Θ(n^(log_b(a)) log^(p+1)(n))**  
+   - `p = -1`: **T(n) = Θ(n^(log_b(a)) log(log(n)))**  
+   - `p < -1`: **T(n) = Θ(n^(log_b(a)))**  
+3. **If a < b^k**  
+   - `p ≥ 0`: **T(n) = Θ(n^k log^p(n))**  
+   - `p < 0`: **T(n) = Θ(n^k)**  
 
-## Master Theorem: General Form
-The Master Theorem has three main cases to determine asymptotic bounds:
 
-### For T(n) = aT(n/b) + c n^k:
-1. **Case 1: `b^k < a`**
-   - **T(n) = Θ(n^(log_b(a)))**
-2. **Case 2: `b^k == a`**
-   - **T(n) = Θ(n^k * log(n))**
-3. **Case 3: `b^k > a`**
-   - **T(n) = Θ(n^k)**
 
-### For T(n) = aT(n - b) + c n^k:
-1. **Case 1: `a < 1`**
-   - **T(n) = Θ(n^k)**
-2. **Case 2: `a == 1`**
-   - **T(n) = Θ(n^(k+1))**
-3. **Case 3: `a > 1`**
-   - **T(n) = Θ(n^k * a^(n/b))**
+### Examples
+1. **Binary Search:**  
+   **T(n) = T(n/2) + O(1)**  
+   → **Θ(log(n))**
 
-### Use the Master Theorem for recurrences of the form **T(n) = aT(n/b) + c n^k** or **T(n) = aT(n - b) + c n^k**:
-- **a** represents the number of subproblems.
-- **b** indicates how much the problem size reduces.
-- **c n^k** is the non-recursive work done.
+2. **Merge Sort:**  
+   **T(n) = 2T(n/2) + O(n)**  
+   → **Θ(n log(n))**
+
+3. **T(n) = 3T(n/2) + n²**  
+   → **Θ(n²)**
+
+
+## Master Theorem for Subtract and Conquer Recurrences
+The general recurrence is:
+
+**T(n) = aT(n - b) + f(n)**  
+Where:
+- `a > 0`, `b > 0`, `f(n) = O(n^k)`
+
+### Cases:
+1. **If a < 1:**  
+   **T(n) = O(n^k)**  
+2. **If a = 1:**  
+   **T(n) = O(n^(k+1))**  
+3. **If a > 1:**  
+   **T(n) = O(n^(k + a * n/b))**
 
 ## Limitations
 The Master Theorem cannot be used if:
