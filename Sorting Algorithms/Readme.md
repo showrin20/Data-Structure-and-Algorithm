@@ -253,3 +253,13 @@ Sorted Array: [3, 9, 10, 27, 38, 43, 82]
 ```
 
 ![Merge Sort](Merge-Sort.png)
+
+
+
+Sorting Algorithm,In-Place,Stable
+Quick Sort,Yes,No
+Merge Sort,No,Yes
+Selection Sort,Yes,No
+Insertion Sort,Yes,Yes
+Bubble Sort,Yes,Yes
+Counting Sort,No,Yes
