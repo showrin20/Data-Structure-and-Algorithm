@@ -1,3 +1,7 @@
+![sort](sort.jpg)
+
+
+
 # Bubble Sort
 
 Bubble Sort is a simple, comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the list is sorted.
