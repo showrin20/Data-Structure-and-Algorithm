@@ -225,8 +225,7 @@ The Master Theorem has three main cases to determine asymptotic bounds:
 3. **Case 3: `a > 1`**
    - **T(n) = Θ(n^k * a^(n/b))**
 
-## Usage Guidelines
-Use the Master Theorem for recurrences of the form **T(n) = aT(n/b) + c n^k** or **T(n) = aT(n - b) + c n^k**:
+### Use the Master Theorem for recurrences of the form **T(n) = aT(n/b) + c n^k** or **T(n) = aT(n - b) + c n^k**:
 - **a** represents the number of subproblems.
 - **b** indicates how much the problem size reduces.
 - **c n^k** is the non-recursive work done.
