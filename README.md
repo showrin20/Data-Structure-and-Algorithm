@@ -190,5 +190,86 @@ In this repository, we provide time complexity analysis for each algorithm based
 - **Average Case**: This represents the scenario where the algorithm takes an average amount of time to run, typically occurring when the input data is randomly distributed.
 
 
+# Master Theorem for Recurrence Relations
 
+This guide explains the **Master Theorem** for solving recurrence relations often found in algorithm analysis, especially in divide-and-conquer problems.
+
+The **Master Theorem** helps derive asymptotic bounds for recurrence relations of the form:
+
+**\[ T(n) = aT(n/b) + c n^k \]**
+
+where:
+- **a ≥ 1**, **b > 1** are constants.
+- **c n^k** represents the cost outside recursive calls.
+
+It also handles recurrences of the form:
+
+**\[ T(n) = a T(n - b) + c n^k \]**
+
+## Master Theorem: General Form
+The Master Theorem has three main cases to determine asymptotic bounds:
+
+### For T(n) = aT(n/b) + c n^k:
+1. **Case 1: `b^k < a`**
+   - **T(n) = Θ(n^(log_b(a)))**
+2. **Case 2: `b^k == a`**
+   - **T(n) = Θ(n^k * log(n))**
+3. **Case 3: `b^k > a`**
+   - **T(n) = Θ(n^k)**
+
+### For T(n) = aT(n - b) + c n^k:
+1. **Case 1: `a < 1`**
+   - **T(n) = Θ(n^k)**
+2. **Case 2: `a == 1`**
+   - **T(n) = Θ(n^(k+1))**
+3. **Case 3: `a > 1`**
+   - **T(n) = Θ(n^k * a^(n/b))**
+
+## Usage Guidelines
+Use the Master Theorem for recurrences of the form **T(n) = aT(n/b) + c n^k** or **T(n) = aT(n - b) + c n^k**:
+- **a** represents the number of subproblems.
+- **b** indicates how much the problem size reduces.
+- **c n^k** is the non-recursive work done.
+
+## Limitations
+The Master Theorem cannot be used if:
+- **b ≤ 1** in **T(n) = aT(n/b) + c n^k**.
+- The recurrence involves logarithms or non-polynomial functions.
+- Subproblems are of unequal size.
+- There are non-constant additive or non-polynomial growth terms.
+- Multiple complex recurrences are combined.
+
+## Examples
+1. **Merge Sort**: **T(n) = 2T(n/2) + cn**
+   - **a = 2, b = 2, k = 1**
+   - Since **b^k == a**, **T(n) = Θ(n log n)** (Case 2).
+
+2. **Binary Search**: **T(n) = T(n/2) + c**
+   - **a = 1, b = 2, k = 0**
+   - Since **b^k > a**, **T(n) = Θ(log n)** (Case 3).
+
+ ## When You Cannot Use the Master Theorem
+- When **b** is not greater than **1** in **T(n) = aT(n/b) + c n^k**.
+- When the recurrence does not fit the general form (recurrences involving logarithms or more complex non-polynomial functions).
+- When subproblems are not of equal size.
+- When additional terms like **non-constant additive terms** or **non-polynomial growth rates** are present in the recurrence.
+- When you have **multiple recurrences** that need to be combined in a more complex way.
+
+## Examples of When the Master Theorem Cannot Be Used
+
+1. **Logarithmic Recurrence**: **T(n) = T(n/2) + log(n)**
+
+   - This recurrence involves a logarithmic term, which is not handled by the Master Theorem.
+
+2. **Non-Equal Subproblem Sizes**: **T(n) = T(n/3) + T(2n/3) + n**
+
+   - The subproblems are of unequal sizes, which means the Master Theorem cannot be applied.
+
+3. **Non-Polynomial Growth**: **T(n) = 2T(n/2) + 2^n**
+
+   - The term **2^n** is an exponential function, which does not fit the polynomial requirements of the Master Theorem.
+
+4. **Multiple Recurrences**: **T(n) = T(n/2) + T(n/4) + n**
+
+   - There are multiple recursive calls with different reductions in problem size, making it incompatible with the standard form of the Master Theorem.
 
