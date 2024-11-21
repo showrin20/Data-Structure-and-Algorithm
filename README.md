@@ -201,23 +201,8 @@ This guide explains the **Master Theorem**, a tool for solving recurrence relati
 ## Master Theorem for Divide and Conquer Recurrences
 The general recurrence is:
 
-**T(n) = aT(n/b) + f(n)**  
-Where:
-- `n` = Problem size  
-- `a` = Number of subproblems (`a ≥ 1`)  
-- `n/b` = Size of each subproblem  
-- `f(n)` = Cost outside recursive calls (dividing/combining subproblems)  
 
-### Cases:
-1. **If a > b^k**  
-   **T(n) = Θ(n^(log_b(a)))**  
-2. **If a = b^k**  
-   - `p > -1`: **T(n) = Θ(n^(log_b(a)) log^(p+1)(n))**  
-   - `p = -1`: **T(n) = Θ(n^(log_b(a)) log(log(n)))**  
-   - `p < -1`: **T(n) = Θ(n^(log_b(a)))**  
-3. **If a < b^k**  
-   - `p ≥ 0`: **T(n) = Θ(n^k log^p(n))**  
-   - `p < 0`: **T(n) = Θ(n^k)**  
+![master](master.png)
 
 
 
