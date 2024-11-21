@@ -99,6 +99,7 @@ def max_subarray_divide_and_conquer(nums, left, right):
 arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 print("Maximum Subarray Sum (Divide and Conquer):", max_subarray_divide_and_conquer(arr, 0, len(arr) - 1))
 ```
+![a](0bdb096a-0065-4ebe-9ce2-dfaf527d8a72.jpeg)
 
 ### **Time Complexity**
 - **Divide Step**: O(1) (Finding the middle index).  
