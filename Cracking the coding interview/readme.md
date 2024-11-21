@@ -1,3 +1,3 @@
-![algo](algo1.jpg)
+![algo](algo1.png)
 
-![algo](algo2.jpg)
+![algo](algo2.png)
