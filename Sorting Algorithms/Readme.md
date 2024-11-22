@@ -289,11 +289,7 @@ print(count_sort(arr))
 - **Stability**: Counting Sort preserves the order of duplicate elements.
 - **Limitation**: Efficient only for sorting integers or discrete values with a small range.
 
-#### How to Use
 
-1. Copy the function into your codebase.
-2. Pass an array of integers as input to `count_sort`.
-3. The function returns a sorted version of the array.
  #### Example Input and Output
 
 ```python
@@ -356,12 +352,6 @@ print(count_sort(arr))
 Input:  [4, -2, 2, 6, 3, -3, 1, 6, 5, -2, 3]
 Output: [-3, -2, -2, 1, 2, 3, 3, 4, 5, 6, 6]
 ```
-
-#### How to Use
-
-1. Copy the function into your codebase.
-2. Pass an array of integers (including negatives) as input to `count_sort`.
-3. The function returns the sorted array.
 
 #### Applications
 - Sorting integers in datasets with mixed positive and negative values.
