@@ -258,8 +258,7 @@ Sorted Array: [3, 9, 10, 27, 38, 43, 82]
 
 ![Merge Sort](Merge-Sort.png)
 
-
-### Counting Sort Algorithm
+# Counting Sort Algorithm
 
 The **Counting Sort** algorithm sorts elements by counting their occurrences and placing them in the correct position based on cumulative counts. It is a non-comparison-based sorting algorithm suitable for sorting integers with a known range.
 
