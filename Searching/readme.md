@@ -188,4 +188,75 @@ def ternary_search(arr, target, low, high):
 
 ```
 
+### Quarterly Search Algorithm
 
+**Quarterly Search** is a modification of binary search that divides the search space into four equal parts instead of two. It recursively narrows down the search range by comparing the target with values at three partition points. This can potentially reduce the number of iterations in some cases by better leveraging the distribution of data.
+
+### How Quarterly Search Works
+
+1. **Divide the Array**: Split the array into four quarters using three partition indices:
+   - \( Q1 = \text{low} + \frac{\text{high} - \text{low}}{4} \)
+   - \( Q2 = \text{low} + 2 \times \frac{\text{high} - \text{low}}{4} \)
+   - \( Q3 = \text{low} + 3 \times \frac{\text{high} - \text{low}}{4} \)
+
+2. **Compare Target**:
+   - If the target is less than the value at \( Q1 \), search the first quarter.
+   - If it lies between \( Q1 \) and \( Q2 \), search the second quarter.
+   - If it lies between \( Q2 \) and \( Q3 \), search the third quarter.
+   - If it is greater than \( Q3 \), search the fourth quarter.
+
+3. **Repeat Until Found**: Repeat the process until the search space is reduced to a single element or the target is found.
+
+### Implementation
+
+Here’s a Python implementation of Quarterly Search:
+
+```python
+def quarterly_search(arr, target, low, high):
+    if low > high:
+        return -1  # Target not found
+
+    # Calculate partition indices
+    q1 = low + (high - low) // 4
+    q2 = low + 2 * (high - low) // 4
+    q3 = low + 3 * (high - low) // 4
+
+    # Compare the target with partition points
+    if arr[q1] == target:
+        return q1
+    elif arr[q2] == target:
+        return q2
+    elif arr[q3] == target:
+        return q3
+
+    # Narrow down the search space
+    if target < arr[q1]:
+        return quarterly_search(arr, target, low, q1 - 1)
+    elif target < arr[q2]:
+        return quarterly_search(arr, target, q1 + 1, q2 - 1)
+    elif target < arr[q3]:
+        return quarterly_search(arr, target, q2 + 1, q3 - 1)
+    else:
+        return quarterly_search(arr, target, q3 + 1, high)
+
+
+# Example usage
+arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
+target = 13
+result = quarterly_search(arr, target, 0, len(arr) - 1)
+if result != -1:
+    print(f"Target found at index {result}")
+else:
+    print("Target not found")
+```
+
+### Complexity Analysis
+
+- **Time Complexity**: \( O(\log_4(n)) \) because the search space is reduced to one-fourth at each step.
+- **Space Complexity**: \( O(\log_4(n)) \) in the recursive implementation due to the call stack.
+
+### Key Points
+
+- Quarterly Search is suitable for **sorted arrays** and can be efficient for datasets where data is uniformly distributed.
+- It may not always be faster than binary search due to additional comparisons per iteration.
+- Like binary search, the array must be sorted before applying the algorithm.
