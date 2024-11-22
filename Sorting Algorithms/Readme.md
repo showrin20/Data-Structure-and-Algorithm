@@ -259,11 +259,113 @@ Sorted Array: [3, 9, 10, 27, 38, 43, 82]
 ![Merge Sort](Merge-Sort.png)
 
 
+### Counting Sort Algorithm
 
-Sorting Algorithm,In-Place,Stable
-Quick Sort,Yes,No
-Merge Sort,No,Yes
-Selection Sort,Yes,No
-Insertion Sort,Yes,Yes
-Bubble Sort,Yes,Yes
-Counting Sort,No,Yes
+The **Counting Sort** algorithm sorts elements by counting their occurrences and placing them in the correct position based on cumulative counts. It is a non-comparison-based sorting algorithm suitable for sorting integers with a known range.
+
+#### Implementation
+
+```python
+def count_sort(arr):
+    n_max = max(arr)
+    count = [0] * (n_max + 1)
+
+    for num in arr:
+        count[num] += 1
+    for i in range(1, len(count)):
+        count[i] += count[i - 1]
+
+    output = [0] * len(arr)
+    for i in range(len(arr) - 1, -1, -1):
+        output[count[arr[i]] - 1] = arr[i]
+        count[arr[i]] -= 1
+    return output
+
+arr = [4, 2, 2, 6, 3, 3, 1, 6, 5, 2, 3]
+print(count_sort(arr))
+```
+#### Key Information
+- **Time Complexity**: \(O(n + k)\), where \(n\) is the size of the array and \(k\) is the range of elements.
+- **Space Complexity**: \(O(k)\), for the count array.
+- **Stability**: Counting Sort preserves the order of duplicate elements.
+- **Limitation**: Efficient only for sorting integers or discrete values with a small range.
+
+#### How to Use
+
+1. Copy the function into your codebase.
+2. Pass an array of integers as input to `count_sort`.
+3. The function returns a sorted version of the array.
+ #### Example Input and Output
+
+```python
+Input:  [4, 2, 2, 6, 3, 3, 1, 6, 5, 2, 3]
+Output: [1, 2, 2, 2, 3, 3, 3, 4, 5, 6, 6]
+```
+
+#### Usage in Projects
+
+This algorithm is especially useful when:
+- The range of numbers is known and small.
+- Stable sorting is required for scenarios like sorting IDs or grades
+
+### Counting Sort Algorithm (with Support for Negative Numbers)
+
+Counting Sort can handle negative numbers by adjusting the range of the count array to include both negative and positive values. Here's how to implement it.
+
+---
+
+#### Implementation
+
+```python
+def count_sort(arr):
+    n_min = min(arr)
+    n_max = max(arr)
+    range_size = n_max - n_min + 1
+
+    count = [0] * range_size
+
+    for num in arr:
+        count[num - n_min] += 1
+    for i in range(1, range_size):
+        count[i] += count[i - 1]
+
+    output = [0] * len(arr)
+    for i in range(len(arr) - 1, -1, -1):
+        output[count[arr[i] - n_min] - 1] = arr[i]
+        count[arr[i] - n_min] -= 1
+    return output
+
+arr = [4, -2, 2, 6, 3, -3, 1, 6, 5, -2, 3]
+print(count_sort(arr))
+```
+#### Key Modifications for Negative Numbers
+1. **Adjust Indexing**: Shift each number by subtracting the minimum value (\(n_{\text{min}}\)) to ensure all indices are non-negative.
+2. **Count Array Range**: Define the range as `n_max - n_min + 1` to include both negative and positive numbers.
+3. **Indexing in Count Array**: Use `num - n_min` to map elements correctly in the count array.
+
+---
+
+#### Key Information
+- **Time Complexity**: \(O(n + k)\), where \(n\) is the size of the array and \(k\) is the range of elements.
+- **Space Complexity**: \(O(k)\), for the count array.
+- **Stability**: Maintains relative order of duplicates.
+- **Limitation**: The algorithm's efficiency decreases with large ranges of numbers.
+
+#### Example Input and Output
+
+```python
+Input:  [4, -2, 2, 6, 3, -3, 1, 6, 5, -2, 3]
+Output: [-3, -2, -2, 1, 2, 3, 3, 4, 5, 6, 6]
+```
+
+#### How to Use
+
+1. Copy the function into your codebase.
+2. Pass an array of integers (including negatives) as input to `count_sort`.
+3. The function returns the sorted array.
+
+#### Applications
+- Sorting integers in datasets with mixed positive and negative values.
+- Stable sorting for cases where duplicate ordering matters.
+
+By extending Counting Sort to handle negatives, the algorithm becomes versatile for broader use cases
