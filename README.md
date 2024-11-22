@@ -220,17 +220,15 @@ The general recurrence is:
 ## Master Theorem for Subtract and Conquer Recurrences
 The general recurrence is:
 
-**T(n) = aT(n - b) + f(n)**  
-Where:
-- `a > 0`, `b > 0`, `f(n) = O(n^k)`
 
-### Cases:
-1. **If a < 1:**  
-   **T(n) = O(n^k)**  
-2. **If a = 1:**  
-   **T(n) = O(n^(k+1))**  
-3. **If a > 1:**  
-   **T(n) = O(n^(k + a * n/b))**
+
+
+![master](master1.png)
+
+![master](master2.png)
+![master](master3.png)
+
+
 
 ## Limitations
 The Master Theorem cannot be used if:
