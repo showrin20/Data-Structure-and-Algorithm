@@ -115,9 +115,7 @@ print("Maximum Subarray Sum (Divide and Conquer):", max_subarray_divide_and_conq
 5. Heap Sort
 6. Counting Sort
 7. Radix Sort
-8. Binary Search Applications
-   - Binary Search on Arrays
-   - Binary Search on Matrix
+
 
 ## Linked Lists
 1. Basic Linked List Operations
