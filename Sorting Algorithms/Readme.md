@@ -12,11 +12,12 @@ The basic version iterates through the list and performs swaps until all element
 ### Code:
 ```python
 def bubble_sort(lst):
-    for i in range(len(lst) - 1):
-        for j in range(len(lst) - 1 - i):
-            if lst[j] > lst[j + 1]:
+    n = len(lst)  # Length of the list
+    for i in range(n - 1):  # Loop through the list n-1 times
+        for j in range(0, n - i - 1):  # Compare adjacent elements
+            if lst[j] > lst[j + 1]:  # If the current element is greater, swap them
                 lst[j], lst[j + 1] = lst[j + 1], lst[j]
-    print(lst)
+    print(lst)  # Print the sorted list
 
 # Example usage
 lst = [22, 14, 12, 18, 9]
