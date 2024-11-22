@@ -1,3 +1,5 @@
+![searching](searching.png)
+
 # Linear Search Algorithm
 
 ## Overview
