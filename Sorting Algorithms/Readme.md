@@ -1,6 +1,6 @@
 ![sort](sort.jpg)
 
-
+![sort](sort1.png)
 
 # Bubble Sort
 
