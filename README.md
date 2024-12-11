@@ -204,18 +204,6 @@ The general recurrence is:
 
 
 
-### Examples
-1. **Binary Search:**  
-   **T(n) = T(n/2) + O(1)**  
-   → **Θ(log(n))**
-
-2. **Merge Sort:**  
-   **T(n) = 2T(n/2) + O(n)**  
-   → **Θ(n log(n))**
-
-3. **T(n) = 3T(n/2) + n²**  
-   → **Θ(n²)**
-
 
 ## Master Theorem for Subtract and Conquer Recurrences
 The general recurrence is:
