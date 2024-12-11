@@ -248,7 +248,7 @@ The Master Theorem cannot be used if:
    - Since **b^k > a**, **T(n) = Θ(log n)** (Case 3).
      
 
-
+# Basic Math Algorithms
 
 
 1. **Euclid's Algorithm for GCD**:
