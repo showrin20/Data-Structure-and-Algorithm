@@ -246,4 +246,64 @@ The Master Theorem cannot be used if:
 2. **Binary Search**: **T(n) = T(n/2) + c**
    - **a = 1, b = 2, k = 0**
    - Since **b^k > a**, **T(n) = Θ(log n)** (Case 3).
+     
 
+
+
+
+1. **Euclid's Algorithm for GCD**:
+   - It finds the greatest common divisor (GCD) of two numbers.
+   - Uses a recursive method where the larger number is divided by the smaller one, and the process continues with the remainder until it becomes zero.
+
+### 1. **Euclid's Algorithm for GCD**
+```python
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# Example Usage
+print("GCD of 56 and 98:", gcd(56, 98))
+```
+
+2. **Sieve of Eratosthenes**:
+   - A technique for finding all prime numbers up to a specified number.
+   - Works by iteratively marking multiples of each prime number starting from 2.
+### 2. **Sieve of Eratosthenes**
+```python
+def sieve_of_eratosthenes(n):
+    primes = [True] * (n + 1)
+    primes[0] = primes[1] = False  # 0 and 1 are not prime numbers
+
+    for i in range(2, int(n**0.5) + 1):
+        if primes[i]:
+            for j in range(i * i, n + 1, i):
+                primes[j] = False
+
+    return [i for i, is_prime in enumerate(primes) if is_prime]
+
+# Example Usage
+print("Prime numbers up to 30:", sieve_of_eratosthenes(30))
+```
+
+
+
+3. **Bit Manipulations**:
+   - Involves performing operations at the bit level.
+   - Utilizes bitwise operators like AND, OR, NOT, and XOR to manipulate bits efficiently. 
+
+
+
+#### Swapping two numbers without using a temporary variable:
+```python
+def swap(a, b):
+    a = a ^ b
+    b = a ^ b
+    a = a ^ b
+    return a, b
+
+# Example Usage
+a, b = 5, 7
+a, b = swap(a, b)
+print("Swapped values: a =", a, ", b =", b)
+```
