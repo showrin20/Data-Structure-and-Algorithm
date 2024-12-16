@@ -203,9 +203,9 @@ def bfs(adj_list, start):
                     queue.append(neighbor)  # Enqueue unvisited neighbors
     return traversal
 
-
-### **Sample Input**
 ```
+### **Sample Input**
+
 9 8
 1 2
 1 3
@@ -215,10 +215,10 @@ def bfs(adj_list, start):
 4 7
 6 8
 3 9
-```
+
 
 ### **Output**
-```
+
 [1, 2, 3, 4, 5, 9, 6, 7, 8]
-```
+
 
