@@ -221,13 +221,4 @@ def bfs(adj_list, start):
 ```
 [1, 2, 3, 4, 5, 9, 6, 7, 8]
 ```
-- **Input Description**:
-  - **9**: Number of nodes in the graph.
-  - **8**: Number of edges.
-  - Each subsequent pair represents an edge between two nodes.
-- **Traversal Explanation**:
-  - Start at node **1**.
-  - Visit nodes in level order: **2, 3, 4** (neighbors of 1).
-  - Proceed to **5** (neighbor of 2), then **9** (neighbor of 3).
-  - Finally, visit **6, 7** (neighbors of 4) and **8** (neighbor of 6).
-- **Output**: The BFS traversal order `[1, 2, 3, 4, 5, 9, 6, 7, 8]` reflects the level-wise exploration of the graph.
+
