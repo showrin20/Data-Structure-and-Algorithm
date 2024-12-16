@@ -263,6 +263,54 @@ print(dfs(adj_list, start))  # Print the DFS traversal order
 
 
 ```
+### An algorithm to explore a graph layer by layer, finding the shortest path in an unweighted graph.
+
+```python
+def bfs(adj_list, start):
+    # Initialization
+    color = {node: "white" for node in adj_list}  # Node colors: white (unvisited), gray (in queue), black (processed)
+    distance = {node: float("inf") for node in adj_list}  # Distance from the source node
+    parent = {node: None for node in adj_list}  # Parent node for path reconstruction
+    queue = []  # Queue for BFS traversal
+    
+    # Start from the source node
+    color[start] = "gray"
+    distance[start] = 0
+    queue.append(start)
+
+    # BFS loop
+    while queue:
+        u = queue.pop(0)  # Dequeue the first node
+        for v in adj_list[u]:  # Explore all neighbors
+            if color[v] == "white":  # Unvisited neighbor
+                color[v] = "gray"
+                distance[v] = distance[u] + 1  # Update distance
+                parent[v] = u  # Set parent
+                queue.append(v)  # Enqueue the neighbor
+        color[u] = "black"  # Mark as processed
+    
+    return distance, parent
+
+# Example usage
+adj_list = {
+    1: [2, 3],
+    2: [1, 5],
+    3: [1, 4],
+    4: [3],
+    5: [2]
+}
+
+start = 1
+distances, parents = bfs(adj_list, start)
+print("Distances:", distances)
+print("Parents:", parents)
+```
+
+
+
+
+
+
 
 ### Time Complexity
 - **Construction of Adjacency List**: \(O(n + m)\), where \(n\) is the number of nodes and \(m\) is the number of edges.
