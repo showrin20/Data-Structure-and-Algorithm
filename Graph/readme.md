@@ -170,3 +170,64 @@ f2.close()
 3. **Output**:
    - Each line starts with a node followed by the list of its connected nodes.
 
+
+# Graph traversal
+
+### **Breadth-First Search (BFS) *
+
+The BFS algorithm explores a graph in layers, starting from a given node and systematically visiting all its neighbors before moving to the next layer. It ensures that each node is visited only once, using a queue for tracking nodes to explore and a visited list to avoid revisiting nodes.
+
+1. **Adjacency List Representation**: The graph is represented as a dictionary, where keys are nodes, and values are lists of neighboring nodes.
+2. **Visited Tracking**: A list ensures nodes are not revisited, maintaining the BFS traversal order.
+3. **Queue**: The `Deque` (double-ended queue) ensures nodes are processed in the correct order.
+4. **Traversal Order**: The result reflects the BFS traversal sequence, level by level.
+
+
+### **Python Code Implementation**
+
+```python
+from collections import deque
+
+def bfs(adj_list, start):
+    visited = []  # To track visited nodes
+    queue = deque([start])  # Initialize the queue with the starting node
+    traversal = []  # To store BFS traversal order
+    
+    while queue:
+        node = queue.popleft()  # Dequeue a node
+        if node not in visited:
+            visited.append(node)  # Mark the node as visited
+            traversal.append(node)  # Add to traversal order
+            for neighbor in adj_list[node]:  # Explore neighbors
+                if neighbor not in visited:
+                    queue.append(neighbor)  # Enqueue unvisited neighbors
+    return traversal
+
+
+### **Sample Input**
+```
+9 8
+1 2
+1 3
+1 4
+2 5
+4 6
+4 7
+6 8
+3 9
+```
+
+### **Output**
+```
+[1, 2, 3, 4, 5, 9, 6, 7, 8]
+```
+- **Input Description**:
+  - **9**: Number of nodes in the graph.
+  - **8**: Number of edges.
+  - Each subsequent pair represents an edge between two nodes.
+- **Traversal Explanation**:
+  - Start at node **1**.
+  - Visit nodes in level order: **2, 3, 4** (neighbors of 1).
+  - Proceed to **5** (neighbor of 2), then **9** (neighbor of 3).
+  - Finally, visit **6, 7** (neighbors of 4) and **8** (neighbor of 6).
+- **Output**: The BFS traversal order `[1, 2, 3, 4, 5, 9, 6, 7, 8]` reflects the level-wise exploration of the graph.
