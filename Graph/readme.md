@@ -224,3 +224,86 @@ def bfs(adj_list, start):
 [1, 2, 3, 4, 5, 9, 6, 7, 8]
 
 
+
+
+
+# Depth-First Search (DFS) Traversal
+
+An algorithm to traverse a graph by exploring as far as possible along each branch before backtracking.
+
+### Key Points
+1. **Graph Representation**: Uses an adjacency list stored in a dictionary.
+2. **Traversal Method**: Employs a stack to implement DFS iteratively.
+3. **Visited Nodes**: Maintains a list of visited nodes to prevent revisiting.
+4. **Start Node**: Begins traversal from a specified starting node (default: 1).
+5. **Output**: Returns the order of nodes visited during traversal.
+
+### Code
+```python
+# Program to construct an adjacency list for a graph, and perform Depth-First Search (DFS) traversal.
+
+# Open input and output files
+f1 = open("input.txt", "r")  # Input file containing graph data
+f2 = open("output.txt", "w")  # Output file (currently unused)
+
+# Read the number of nodes (n) and edges (m) from the first line of the input
+n, m = [int(i) for i in f1.readline().split()]
+
+# Initialize an empty adjacency list to store the graph
+adj_list = {}
+
+# Populate the adjacency list with graph edges
+for i in range(m):
+    u, v = [int(i) for i in f1.readline().split()]  # Read an edge (u, v)
+    if u not in adj_list:
+        adj_list[u] = []  # Initialize adjacency list for node u if not present
+    adj_list[u].append(v)  # Add v to u's adjacency list
+    if v not in adj_list:
+        adj_list[v] = []  # Initialize adjacency list for node v if not present
+    adj_list[v].append(u)  # Add u to v's adjacency list
+
+# Function to perform Depth-First Search (DFS) on the graph
+def dfs(adj_list, start):
+    visited = []  # List to track visited nodes
+    stack = [start]  # Stack to manage DFS traversal
+    traversal = []  # List to store the order of traversal
+
+    while stack:
+        node = stack.pop()  # Get the last node from the stack
+        if node not in visited:
+            visited.append(node)  # Mark the node as visited
+            traversal.append(node)  # Add the node to the traversal order
+            for neighbor in reversed(adj_list[node]):  # Reverse neighbors for correct DFS order
+                if neighbor not in visited:
+                    stack.append(neighbor)  # Add unvisited neighbors to the stack
+
+    return traversal
+
+# Start DFS from node 1
+start = 1
+print(dfs(adj_list, start))  # Print the DFS traversal order
+
+# Close the files
+f1.close()
+f2.close()
+```
+
+### Time Complexity
+- **Construction of Adjacency List**: \(O(n + m)\), where \(n\) is the number of nodes and \(m\) is the number of edges.
+- **DFS Traversal**: \(O(n + m)\), as each node and edge is processed once.
+- **Overall Time Complexity**: \(O(n + m)\).
+
+### Sample Input (input.txt)
+```
+5 4
+1 2
+1 3
+3 4
+2 5
+```
+
+### Output
+```
+[1, 3, 4, 2, 5]
+```
+
