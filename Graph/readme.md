@@ -206,6 +206,7 @@ def bfs(adj_list, start):
 ```
 ### **Sample Input**
 
+```
 9 8
 1 2
 1 3
@@ -215,6 +216,7 @@ def bfs(adj_list, start):
 4 7
 6 8
 3 9
+```
 
 
 ### **Output**
