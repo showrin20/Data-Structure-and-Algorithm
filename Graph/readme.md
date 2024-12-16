@@ -173,7 +173,7 @@ f2.close()
 
 # Graph traversal
 
-### **Breadth-First Search (BFS) *
+### Breadth-First Search (BFS)
 
 The BFS algorithm explores a graph in layers, starting from a given node and systematically visiting all its neighbors before moving to the next layer. It ensures that each node is visited only once, using a queue for tracking nodes to explore and a visited list to avoid revisiting nodes.
 
