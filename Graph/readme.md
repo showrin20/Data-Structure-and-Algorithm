@@ -266,44 +266,48 @@ print(dfs(adj_list, start))  # Print the DFS traversal order
 ### An algorithm to explore a graph layer by layer, finding the shortest path in an unweighted graph.
 
 ```python
-def bfs(adj_list, start):
-    # Initialization
-    color = {node: "white" for node in adj_list}  # Node colors: white (unvisited), gray (in queue), black (processed)
-    distance = {node: float("inf") for node in adj_list}  # Distance from the source node
-    parent = {node: None for node in adj_list}  # Parent node for path reconstruction
-    queue = []  # Queue for BFS traversal
+def bfs_shortest_path_distance(adj_list, start, end):
+    color = {node: "white" for node in adj_list}
+    distance = {node: float('inf') for node in adj_list}
+    parent = {node: None for node in adj_list}
+    traversal_order = []
     
-    # Start from the source node
     color[start] = "gray"
     distance[start] = 0
-    queue.append(start)
-
-    # BFS loop
-    while queue:
-        u = queue.pop(0)  # Dequeue the first node
-        for v in adj_list[u]:  # Explore all neighbors
-            if color[v] == "white":  # Unvisited neighbor
-                color[v] = "gray"
-                distance[v] = distance[u] + 1  # Update distance
-                parent[v] = u  # Set parent
-                queue.append(v)  # Enqueue the neighbor
-        color[u] = "black"  # Mark as processed
+    queue = deque([start])
     
-    return distance, parent
+    while queue:
+        node = queue.popleft()
+        traversal_order.append(node)
+            
+        for neighbour in adj_list[node]:
+            if color[neighbour] == "white":
+                color[neighbour] = "gray"
+                distance[neighbour] = distance[node] + 1
+                parent[neighbour] = node
+                queue.append(neighbour)
+        
+        color[node] = "black"
 
-# Example usage
-adj_list = {
-    1: [2, 3],
-    2: [1, 5],
-    3: [1, 4],
-    4: [3],
-    5: [2]
-}
+    return distance, parent, traversal_order
+
+def reconstruct_path(parent, start, end):
+    path = []
+    while end is not None:
+        path.append(end)
+        end = parent[end]
+    path.reverse() 
+    return path
 
 start = 1
-distances, parents = bfs(adj_list, start)
+distances, parents, traversal_order = bfs_shortest_path_distance(adj_list, start, e)
+shortest_path = reconstruct_path(parents, start, e)
 print("Distances:", distances)
 print("Parents:", parents)
+print("Traversal order:", traversal_order)
+print("Shortest path from {} to {}: {}".format(start, e, shortest_path))
+
+
 ```
 
 
