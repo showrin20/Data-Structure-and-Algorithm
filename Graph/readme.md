@@ -488,7 +488,7 @@ Topological Sort (Kahn's Algorithm): [0, 1, 2, 3]
    **Time Complexity**: \( O(V + E) \).
 
 
-```
+``` python
 def topological_sort_dfs(graph, vertices):
     visited = [False] * vertices
     stack = []
