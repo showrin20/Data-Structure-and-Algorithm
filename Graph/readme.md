@@ -417,6 +417,68 @@ f2.close()
 5. **Generalized Starting Node**: Eliminates the hard-coded starting node, making it more robust for any input.
 
 
+
+# **Cycle Detection in Directed Graph Using DFS with Integer Flags**
+
+If you prefer using `0` and `1` instead of `False` and `True`, you can modify the algorithm accordingly. Here's the updated implementation using `0` for `False` and `1` for `True`:
+
+### Python Implementation with `0` and `1`
+```python
+def is_cyclic(graph, num_nodes):
+    visited = [0] * num_nodes  # 0 means unvisited, 1 means visited
+    rec_stack = [0] * num_nodes  # 0 means not in recursion stack, 1 means in recursion stack
+
+    def dfs(node):
+        visited[node] = 1
+        rec_stack[node] = 1
+
+        for neighbor in graph[node]:
+            if visited[neighbor] == 0:  # If neighbor is unvisited
+                if dfs(neighbor):
+                    return 1
+            elif rec_stack[neighbor] == 1:  # If neighbor is in recursion stack
+                return 1
+
+        rec_stack[node] = 0  # Backtrack
+        return 0
+
+    for node in range(num_nodes):
+        if visited[node] == 0:
+            if dfs(node):
+                return 1  # Cycle found
+
+    return 0  # No cycle found
+
+# Example usage:
+graph = {
+    0: [1],
+    1: [2],
+    2: [3],
+    3: [1],  # Cycle here
+    4: []
+}
+
+print(is_cyclic(graph, 5))  # Output: 1 (Cycle exists)
+```
+
+### Key Modifications
+1. **Visited and Recursion Stack**:
+   - `visited[node] == 0`: Node is unvisited.
+   - `visited[node] == 1`: Node has been visited.
+   - `rec_stack[node] == 0`: Node is not in the recursion stack.
+   - `rec_stack[node] == 1`: Node is in the recursion stack.
+   
+2. **Return Values**:
+   - `1`: Cycle detected.
+   - `0`: No cycle detected.
+
+
+
+
+
+
+
+
 # Topological Sort
 
 **Topological Sort** is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge \( u \to v \), vertex \( u \) appears before \( v \) in the ordering. It is commonly used in scenarios like task scheduling, where some tasks must be completed before others.
