@@ -418,3 +418,112 @@ f2.close()
 
 
 
+
+**Topological Sort** is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge \( u \to v \), vertex \( u \) appears before \( v \) in the ordering. It is commonly used in scenarios like task scheduling, where some tasks must be completed before others.
+
+### Properties
+1. **Graph Type**: Only applicable to Directed Acyclic Graphs (DAGs).
+2. **Ordering**: Provides a sequence that respects the dependencies (edges).
+
+### Algorithms
+#### 1. **Kahn’s Algorithm (Indegree-Based)**
+   - Maintain an array of indegrees for each vertex.
+   - Use a queue to store vertices with indegree 0.
+   - Iteratively:
+     - Remove a vertex from the queue and add it to the topological order.
+     - Decrease the indegree of its neighbors. If a neighbor's indegree becomes 0, add it to the queue.
+
+   **Time Complexity**: \( O(V + E) \), where \( V \) is the number of vertices and \( E \) is the number of edges.
+
+#### 2. **Depth First Search (DFS) Based**
+   - Perform DFS on the graph.
+   - As you finish visiting all descendants of a node, push it onto a stack.
+   - After the DFS completes, pop nodes from the stack to get the topological order.
+
+   **Time Complexity**: \( O(V + E) \).
+
+### Example
+
+#### Graph:
+\[
+1 \to 2, \, 1 \to 3, \, 3 \to 4, \, 2 \to 4
+\]
+
+#### Kahn’s Algorithm Steps:
+1. **Indegree Calculation**:
+   - Indegree of \( 1 = 0 \),
+   - Indegree of \( 2 = 1 \),
+   - Indegree of \( 3 = 1 \),
+   - Indegree of \( 4 = 2 \).
+
+2. **Queue Initialization**: \( [1] \) (nodes with indegree 0).
+
+3. **Processing**:
+   - Remove \( 1 \): Topological order \( = [1] \); decrease indegree of \( 2 \) and \( 3 \).
+   - Indegrees: \( 2 = 0, 3 = 0, 4 = 2 \). Queue \( = [2, 3] \).
+   - Remove \( 2 \): Topological order \( = [1, 2] \); decrease indegree of \( 4 \).
+   - Indegrees: \( 3 = 0, 4 = 1 \). Queue \( = [3] \).
+   - Remove \( 3 \): Topological order \( = [1, 2, 3] \); decrease indegree of \( 4 \).
+   - Indegrees: \( 4 = 0 \). Queue \( = [4] \).
+   - Remove \( 4 \): Topological order \( = [1, 2, 3, 4] \).
+
+
+Here's Python code for **Topological Sort** using both **Kahn's Algorithm** and **DFS**:
+
+---
+
+### Kahn’s Algorithm (Indegree-Based)
+
+```python
+from collections import defaultdict, deque
+
+def topological_sort_kahn(graph, vertices):
+    indegree = {i: 0 for i in range(vertices)}
+    for node in graph:
+        for neighbor in graph[node]:
+            indegree[neighbor] += 1
+
+    # Queue for nodes with indegree 0
+    queue = deque([node for node in range(vertices) if indegree[node] == 0])
+    topo_order = []
+
+    while queue:
+        current = queue.popleft()
+        topo_order.append(current)
+        for neighbor in graph[current]:
+            indegree[neighbor] -= 1
+            if indegree[neighbor] == 0:
+                queue.append(neighbor)
+
+    if len(topo_order) == vertices:
+        return topo_order  # Successfully sorted
+    else:
+        return "Cycle detected, topological sort not possible"
+
+# Example usage
+graph = {
+    0: [1, 2],
+    1: [3],
+    2: [3],
+    3: []
+}
+vertices = 4
+print("Topological Sort (Kahn's Algorithm):", topological_sort_kahn(graph, vertices))
+```
+```
+Topological Sort (Kahn's Algorithm): [0, 1, 2, 3]
+```
+
+
+
+#### DFS-Based Result:
+   Perform DFS and stack the nodes upon completion:
+   - Topological order \( = [1, 2, 3, 4] \) or similar valid order.
+
+### Applications
+- Task Scheduling.
+- Course Prerequisite Ordering.
+- Dependency Resolution in Build Systems (e.g., `make`).
+- Compilation Order for Source Code Files. 
+
+
