@@ -539,22 +539,6 @@ def topological_sort_dfs(graph, vertices):
 
     return stack[::-1]  # Reverse the stack for topological order
 
-# Example usage
-graph = {
-    0: [1, 2],
-    1: [3],
-    2: [3],
-    3: []
-}
-vertices = 4
-print("Topological Sort (DFS):", topological_sort_dfs(graph, vertices))
-
-
-
-
-
-
-
 
 
 ### Applications
