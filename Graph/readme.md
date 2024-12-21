@@ -435,42 +435,8 @@ f2.close()
 
    **Time Complexity**: \( O(V + E) \), where \( V \) is the number of vertices and \( E \) is the number of edges.
 
-#### 2. **Depth First Search (DFS) Based**
-   - Perform DFS on the graph.
-   - As you finish visiting all descendants of a node, push it onto a stack.
-   - After the DFS completes, pop nodes from the stack to get the topological order.
-
-   **Time Complexity**: \( O(V + E) \).
-
-### Example
-
-#### Graph:
-\[
-1 \to 2, \, 1 \to 3, \, 3 \to 4, \, 2 \to 4
-\]
-
-#### Kahn’s Algorithm Steps:
-1. **Indegree Calculation**:
-   - Indegree of \( 1 = 0 \),
-   - Indegree of \( 2 = 1 \),
-   - Indegree of \( 3 = 1 \),
-   - Indegree of \( 4 = 2 \).
-
-2. **Queue Initialization**: \( [1] \) (nodes with indegree 0).
-
-3. **Processing**:
-   - Remove \( 1 \): Topological order \( = [1] \); decrease indegree of \( 2 \) and \( 3 \).
-   - Indegrees: \( 2 = 0, 3 = 0, 4 = 2 \). Queue \( = [2, 3] \).
-   - Remove \( 2 \): Topological order \( = [1, 2] \); decrease indegree of \( 4 \).
-   - Indegrees: \( 3 = 0, 4 = 1 \). Queue \( = [3] \).
-   - Remove \( 3 \): Topological order \( = [1, 2, 3] \); decrease indegree of \( 4 \).
-   - Indegrees: \( 4 = 0 \). Queue \( = [4] \).
-   - Remove \( 4 \): Topological order \( = [1, 2, 3, 4] \).
 
 
-Here's Python code for **Topological Sort** using both **Kahn's Algorithm** and **DFS**:
-
----
 
 ### Kahn’s Algorithm (Indegree-Based)
 
@@ -514,14 +480,19 @@ print("Topological Sort (Kahn's Algorithm):", topological_sort_kahn(graph, verti
 Topological Sort (Kahn's Algorithm): [0, 1, 2, 3]
 ```
 
+#### 2. **Depth First Search (DFS) Based**
+   - Perform DFS on the graph.
+   - As you finish visiting all descendants of a node, push it onto a stack.
+   - After the DFS completes, pop nodes from the stack to get the topological order.
 
+   **Time Complexity**: \( O(V + E) \).
 
 #### DFS-Based Result:
    Perform DFS and stack the nodes upon completion:
    - Topological order \( = [1, 2, 3, 4] \) or similar valid order.
 
 
-
+```
 def topological_sort_dfs(graph, vertices):
     visited = [False] * vertices
     stack = []
@@ -540,7 +511,7 @@ def topological_sort_dfs(graph, vertices):
     return stack[::-1]  # Reverse the stack for topological order
 
 
-
+```
 ### Applications
 - Task Scheduling.
 - Course Prerequisite Ordering.
