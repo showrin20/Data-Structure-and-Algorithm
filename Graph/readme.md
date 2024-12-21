@@ -487,10 +487,6 @@ Topological Sort (Kahn's Algorithm): [0, 1, 2, 3]
 
    **Time Complexity**: \( O(V + E) \).
 
-#### DFS-Based Result:
-   Perform DFS and stack the nodes upon completion:
-   - Topological order \( = [1, 2, 3, 4] \) or similar valid order.
-
 
 ```
 def topological_sort_dfs(graph, vertices):
