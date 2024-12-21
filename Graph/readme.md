@@ -417,7 +417,7 @@ f2.close()
 5. **Generalized Starting Node**: Eliminates the hard-coded starting node, making it more robust for any input.
 
 
-
+# Topological Sort
 
 **Topological Sort** is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge \( u \to v \), vertex \( u \) appears before \( v \) in the ordering. It is commonly used in scenarios like task scheduling, where some tasks must be completed before others.
 
