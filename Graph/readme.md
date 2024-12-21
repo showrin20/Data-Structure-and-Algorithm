@@ -520,6 +520,43 @@ Topological Sort (Kahn's Algorithm): [0, 1, 2, 3]
    Perform DFS and stack the nodes upon completion:
    - Topological order \( = [1, 2, 3, 4] \) or similar valid order.
 
+
+
+def topological_sort_dfs(graph, vertices):
+    visited = [False] * vertices
+    stack = []
+
+    def dfs(node):
+        visited[node] = True
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                dfs(neighbor)
+        stack.append(node)
+
+    for v in range(vertices):
+        if not visited[v]:
+            dfs(v)
+
+    return stack[::-1]  # Reverse the stack for topological order
+
+# Example usage
+graph = {
+    0: [1, 2],
+    1: [3],
+    2: [3],
+    3: []
+}
+vertices = 4
+print("Topological Sort (DFS):", topological_sort_dfs(graph, vertices))
+
+
+
+
+
+
+
+
+
 ### Applications
 - Task Scheduling.
 - Course Prerequisite Ordering.
