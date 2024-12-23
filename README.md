@@ -154,7 +154,7 @@ print("Maximum Subarray Sum (Divide and Conquer):", max_subarray_divide_and_conq
 3. Conversion Based Problems
 4. K Based Problems
 
-## Graphs
+## [Graphs](https://github.com/showrin20/Data-Structure-and-Algorithm/tree/main/Graph) 
 1. Basic Graph Operations
 2. Graph Traversals - BFS and DFS
 3. Minimum Spanning Tree (MST)
