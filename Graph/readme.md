@@ -577,3 +577,97 @@ def topological_sort_dfs(graph, vertices):
 - Compilation Order for Source Code Files. 
 
 
+# Single-Source Shortest Path: Dijkstra's Algorithm
+
+This repository contains an implementation of **Dijkstra's Algorithm** to compute the shortest paths from a source vertex to all other vertices in a weighted graph.
+
+## Algorithm Overview
+
+Dijkstra's Algorithm efficiently calculates the shortest paths from a single source vertex to all other vertices in a graph with **non-negative edge weights**.
+
+### Key Features:
+- Input: Weighted graph represented as an adjacency list.
+- Output: A list of shortest path distances from the source vertex to all other vertices, with `-1` indicating unreachable vertices.
+- Efficient handling of graph traversal using a **priority queue (min-heap)**.
+
+## Implementation Details
+
+### Input
+- **`adj_list`**: An adjacency list where each vertex maps to a list of tuples `(neighbor, weight)` representing the edges and their weights.
+- **`s`**: The source vertex.
+
+### Output
+- A list of shortest path distances from the source to each vertex:
+  - `dist[v]`: The shortest distance from the source `s` to vertex `v`.
+  - Unreachable vertices are marked as `-1`.
+
+
+### Algorithm Steps
+
+1. **Initialization**:
+   - Set all distances to infinity (`math.inf`) except the source (`dist[s] = 0`).
+   - Use a priority queue to store vertices with their distances, starting with the source.
+   - Track visited vertices to prevent reprocessing.
+
+2. **Process Each Vertex**:
+   - Extract the vertex with the smallest distance.
+   - For each neighbor, calculate the alternative distance (`alt = dist[u] + weight`).
+   - Update the distance if `alt` is smaller than the current distance and push it into the queue.
+
+3. **Output the Results**:
+   - Convert all unreachable distances (`math.inf`) to `-1`.
+
+
+
+### Complexity
+- **Time Complexity**: \(O((V + E) \log V)\), where \(V\) is the number of vertices and \(E\) is the number of edges.
+- **Space Complexity**: \(O(V + E)\).
+
+
+
+## Example Usage
+
+```python
+import math
+import heapq as hq
+
+def dijkstra(adj_list, s):
+    dist = [math.inf] * (len(adj_list) + 1)
+    dist[s] = 0
+    queue = []
+    hq.heappush(queue, (dist[s], s))
+    visited = [False] * (len(adj_list) + 1)
+
+    while queue:
+        curr_dist, u = hq.heappop(queue)
+        if visited[u]:
+            continue
+        visited[u] = True
+        for v, weight in adj_list[u]:
+            alt = dist[u] + weight
+            if alt < dist[v]:
+                dist[v] = alt
+                hq.heappush(queue, (dist[v], v))
+
+    return [-1 if d == math.inf else d for d in dist[1:]]
+
+# Example Graph
+adj_list = {
+    1: [(2, 4), (3, 1)],
+    2: [(3, 2), (4, 5)],
+    3: [(4, 8)],
+    4: []
+}
+source = 1
+
+shortest_paths = dijkstra(adj_list, source)
+print(shortest_paths)
+```
+
+## Notes
+- Ensure that the graph contains **non-negative edge weights** for this algorithm to work correctly.
+- For graphs with negative weights, consider the **Bellman-Ford algorithm**.
+
+
+
+
