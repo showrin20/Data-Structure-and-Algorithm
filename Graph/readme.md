@@ -762,7 +762,7 @@ edges = [
 Minimum Spanning Tree Cost: 15
 ```
 
-![image](https://github.com/user-attachments/assets/2dfb859e-4674-4b79-b2b4-0bfe40bfbc24)
+![image](UnionFindKruskalDemo.gif)
 
 
 ### Explanation of the Output
