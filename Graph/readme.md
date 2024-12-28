@@ -670,4 +670,101 @@ print(shortest_paths)
 
 
 
+# **Kruskal's Minimum Spanning Tree Algorithm**
 
+
+### Steps
+1. **Initialize**:
+   - Create a `parent` array where each element is its own parent.
+   - Create a `size` array to keep track of the size of each component.
+   - Set `min_spanning_tree_cost` to 0.
+
+2. **Sort Edges**:
+   - Sort the edges based on their weights.
+
+3. **Union-Find**:
+   - For each edge (u, v) with weight w:
+     - Use the `find` function to get the roots of u and v.
+     - If the roots are different, perform a union of the two components.
+     - Add the weight of the edge to `min_spanning_tree_cost`.
+
+4. **Return the Total Cost**:
+   - After processing all edges, return the total cost of the minimum spanning tree.
+
+### Key Information
+- The algorithm works on undirected graphs.
+- It employs a union-find data structure to efficiently manage and merge disjoint sets.
+- The edge list is sorted, allowing the algorithm to consider the lowest-weight edges first.
+
+### Code
+
+```python
+def find(parents, i):
+    if parents[i] != i:
+        parents[i] = find(parents, parents[i])
+    return parents[i]
+
+def union(parents, size, x, y):
+    root_x = find(parents, x)
+    root_y = find(parents, y)
+    if root_x != root_y:
+        # Ensure root_x is always the larger tree
+        if size[root_x] < size[root_y]:
+            root_x, root_y = root_y, root_x
+        parents[root_y] = root_x
+        size[root_x] += size[root_y]
+    return size[root_x]
+
+def kruskal(n, edges):
+    parents = [i for i in range(n + 1)]
+    size = [1] * (n + 1)
+    min_spanning_tree_cost = 0
+    
+    # Sort edges by weight
+    edges.sort(key=lambda x: x[2])  # Corrected the sort function
+
+    for u, v, w in edges:
+        if find(parents, u) != find(parents, v):
+            min_spanning_tree_cost += w  # Add the weight to the cost
+            union(parents, size, u, v)
+
+    return min_spanning_tree_cost
+
+# Sample input (number of vertices and edges)
+n = 4  # Number of vertices
+edges = [
+    (1, 2, 10),
+    (1, 3, 6),
+    (1, 4, 5),
+    (2, 4, 15),
+    (3, 4, 4)
+]
+
+# Running the algorithm
+result = kruskal(n, edges)
+print("Minimum Spanning Tree Cost:", result)
+```
+
+### Input
+```python
+n = 4  # Number of vertices
+edges = [
+    (1, 2, 10),
+    (1, 3, 6),
+    (1, 4, 5),
+    (2, 4, 15),
+    (3, 4, 4)
+]
+```
+
+### Output
+```
+Minimum Spanning Tree Cost: 15
+```
+
+### Explanation of the Output
+- The edges chosen for the minimum spanning tree are:
+  - (3, 4) with weight 4
+  - (1, 4) with weight 5
+  - (1, 2) with weight 10
+- The total cost of the minimum spanning tree is 4 + 5 + 10 = 19.
