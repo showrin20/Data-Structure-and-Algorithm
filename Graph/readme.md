@@ -1,4 +1,4 @@
-## [Codes of Graphs](https://docs.google.com/document/d/1aSFCw0m3sRzeHuRBBFoL8GCcObWVmqjEwuaE84P96lw/edit?usp=sharing)
+## [Codes of Graphs](https://colab.research.google.com/drive/1-rhyRbdmgN280hvVJtBNwewwix28Eioo?usp=sharing)
 # Graph Representation
 ## Adjacency Matrix
 ```python
