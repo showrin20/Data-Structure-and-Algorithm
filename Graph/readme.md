@@ -263,6 +263,29 @@ print(dfs(adj_list, start))  # Print the DFS traversal order
 
 
 ```
+# DFS Algorithm (Recursive)
+
+```python
+def dfs_recursive(adj_list, node, visited, traversal):
+    visited.add(node)
+    traversal.append(node)
+    for neighbour in adj_list[node]:
+        if neighbour not in visited:
+            dfs_recursive(adj_list, neighbour, visited, traversal)
+
+bfs_result = bfs(adj_list, start)
+dfs_result = dfs(adj_list, start)
+
+visited = set()
+traversal = []
+for node in adj_list:
+    if node not in visited:
+        dfs_recursive(adj_list, node, visited, traversal)
+
+
+
+```
+
 # An algorithm to explore a graph layer by layer, finding the shortest path in an unweighted graph.
 
 ```python
