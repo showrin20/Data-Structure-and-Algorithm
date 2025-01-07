@@ -107,6 +107,25 @@ print("Maximum Subarray Sum (Divide and Conquer):", max_subarray_divide_and_conq
 - **Combine Step**: O(n) (Calculating the crossing sum).  
 - **Total Complexity**: \(O(n \log n)\). 
 
+
+
+# Greedy algorithms VS Dynamic Programming (DP)
+
+
+| **Feature**           | **Greedy Algorithm**                         | **Dynamic Programming (DP)**             |
+|-----------------------|---------------------------------------------|------------------------------------------|
+| **Solution Process**   | Makes a locally optimal choice at each step | Solves subproblems and combines their solutions |
+| **Key Properties Needed** | Greedy choice property and optimal substructure | Only optimal substructure required       |
+| **Optimality**         | May not always yield a globally optimal solution | Always guarantees a globally optimal solution |
+| **Efficiency**         | Faster and simpler, often \(O(n)\) or \(O(n \log n)\) | Slower and more complex, often \(O(n^2)\) or \(O(n \cdot W)\) |
+| **Space Complexity**   | Typically lower                            | Typically higher due to memoization/table storage |
+| **Problem Type**       | Works for problems with clear greedy choice property | Works for problems with overlapping subproblems |
+| **Examples**           | - Dijkstra’s algorithm (shortest path with non-negative weights) <br> - Prim’s/Kruskal’s algorithms (Minimum Spanning Tree) <br> - Activity selection problem | - 0/1 Knapsack problem <br> - Longest Common Subsequence (LCS) <br> - Fibonacci sequence <br> - Bellman-Ford algorithm (shortest path with negative weights) |
+| **Drawbacks**          | Doesn’t guarantee global optimum unless problem has greedy properties | Higher computational cost and memory usage |
+| **When to Use**        | When greedy choice property applies, and local choices lead to global optimum | When the problem has overlapping subproblems and requires global optimization |
+
+
+
 ## [Sorting Algorithms](https://github.com/showrin20/Data-Structure-and-Algorithm/tree/main/Sorting%20Algorithms)
 1. Insertion Sort
 2. Selection Sort
