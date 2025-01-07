@@ -1,4 +1,4 @@
-# 0/1 Knapsack Problem Solver
+# 0/1 Knapsack Problem 
 
 ## Problem Statement
 
