@@ -163,7 +163,7 @@ print(f"LCS Length: {length}, LCS: {sequence}")
 
 
 ### Time and Space Complexity
-1. **Time Complexity:** \( O(m \cdot n) \), where \( m \) and \( n \) are the lengths of \( X \) and \( Y \), respectively.
+1. **Time Complexity:** 0(m.n) where  m and n are the lengths of x and y respectively.
 2. **Space Complexity:** 
-   - \( O(m \cdot n) \) with the full DP table.
-   - \( O(\min(m, n)) \) with space optimization (keeping only two rows of the DP table).
+   - 0(m.n)  with the full DP table.
+   - (O(min(m, n))) with space optimization (keeping only two rows of the DP table).
