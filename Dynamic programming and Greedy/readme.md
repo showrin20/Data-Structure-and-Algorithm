@@ -71,3 +71,99 @@ capacity = 50
 
 max_value = knapsack(values, weights, capacity)
 print(f"The maximum value that can be obtained is: {max_value}")
+```
+
+
+
+# Longest Common Subsequence (LCS)
+
+The **Longest Common Subsequence (LCS)** algorithm is a dynamic programming technique used to find the longest subsequence common to two sequences (strings, arrays, etc.) while maintaining the relative order of elements.
+
+### Problem Definition
+Given two sequences \( X = x_1, x_2, \ldots, x_m \) and \( Y = y_1, y_2, \ldots, y_n \), find the longest sequence \( Z \) that is a subsequence of both \( X \) and \( Y \).
+
+### Properties of LCS
+1. **Overlapping Subproblems**: The solution of the LCS can be broken down into smaller subproblems.
+2. **Optimal Substructure**: The optimal solution of the problem depends on the optimal solutions of its subproblems.
+
+
+
+### Algorithm: Dynamic Programming Approach
+
+1. **Define the DP Table:**
+   Let \( dp[i][j] \) represent the length of the LCS of the prefixes \( X[1:i] \) and \( Y[1:j] \).
+
+2. **Base Cases:**
+   - \( dp[0][j] = 0 \) for all \( j \): LCS of an empty string and any prefix of \( Y \) is 0.
+   - \( dp[i][0] = 0 \) for all \( i \): LCS of any prefix of \( X \) and an empty string is 0.
+
+3. **Recursive Relation:**
+   For \( 1 \leq i \leq m \) and \( 1 \leq j \leq n \):
+   - If \( X[i-1] == Y[j-1] \):  
+     \[
+     dp[i][j] = dp[i-1][j-1] + 1
+     \]
+   - Else:  
+     \[
+     dp[i][j] = \max(dp[i-1][j], dp[i][j-1])
+     \]
+
+4. **Result:**
+   The length of the LCS is stored in \( dp[m][n] \).
+
+
+
+### Code Implementation in Python
+```python
+def lcs(X, Y):
+    m, n = len(X), len(Y)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+    # Fill the DP table
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if X[i - 1] == Y[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+    # Reconstruct the LCS
+    i, j = m, n
+    lcs_sequence = []
+    while i > 0 and j > 0:
+        if X[i - 1] == Y[j - 1]:
+            lcs_sequence.append(X[i - 1])
+            i -= 1
+            j -= 1
+        elif dp[i - 1][j] > dp[i][j - 1]:
+            i -= 1
+        else:
+            j -= 1
+
+    lcs_sequence.reverse()
+    return dp[m][n], ''.join(lcs_sequence)
+
+# Example Usage
+X = "AGGTAB"
+Y = "GXTXAYB"
+length, sequence = lcs(X, Y)
+print(f"LCS Length: {length}, LCS: {sequence}")
+```
+
+
+
+### Example
+**Input:**
+- \( X = \text{"AGGTAB"} \)
+- \( Y = \text{"GXTXAYB"} \)
+
+**Output:**
+- LCS Length: \( 4 \)
+- LCS: \( \text{"GTAB"} \)
+
+
+### Time and Space Complexity
+1. **Time Complexity:** \( O(m \cdot n) \), where \( m \) and \( n \) are the lengths of \( X \) and \( Y \), respectively.
+2. **Space Complexity:** 
+   - \( O(m \cdot n) \) with the full DP table.
+   - \( O(\min(m, n)) \) with space optimization (keeping only two rows of the DP table).
