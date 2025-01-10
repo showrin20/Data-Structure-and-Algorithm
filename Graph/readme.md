@@ -1,3 +1,43 @@
+
+
+
+
+
+
+
+
+
+
+
+
+# Time Complexity
+
+| **Algorithm**                     | **Best Case**          | **Average Case**       | **Worst Case**          | **Explanation**                                                                                                                                      |
+|------------------------------------|------------------------|------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **BFS (Breadth-First Search)**     | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | BFS visits each vertex and edge exactly once in an adjacency list. \( V \) is vertices, and \( E \) is edges.                                        |
+| **DFS (Depth-First Search)**       | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | Similar to BFS, DFS visits each vertex and edge once but uses recursion or a stack.                                                                 |
+| **Topological Sort**               | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | Performed using DFS. Requires \( O(V+E) \) to visit all nodes and edges in a Directed Acyclic Graph (DAG).                                           |
+| **Strongly Connected Components**  | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | Performed using two DFS passes (e.g., Kosaraju's or Tarjan's algorithm). Each DFS is \( O(V+E) \).                                                  |
+| **Dijkstra's Algorithm**           | \( O((V+E) \log V) \) | \( O((V+E) \log V) \) | \( O((V+E) \log V) \)  | Using a priority queue, the time complexity is \( O((V+E) \log V) \). For dense graphs (\( E \approx V^2 \)), it becomes \( O(V^2 \log V) \).         |
+| **Bellman-Ford Algorithm**         | \( O(VE) \)           | \( O(VE) \)           | \( O(VE) \)            | Iterates \( V-1 \) times over all \( E \) edges to relax distances. Works well for graphs with negative weights.                                     |
+| **Kruskal's Algorithm**            | \( O(E \log E) \)     | \( O(E \log E) \)     | \( O(E \log E) \)      | Sorts edges by weight in \( O(E \log E) \) and uses a union-find data structure for detecting cycles, making it efficient for sparse graphs.          |
+| **Prim's Algorithm**               | \( O((V+E) \log V) \) | \( O((V+E) \log V) \) | \( O((V+E) \log V) \)  | With a priority queue, it finds the MST in \( O((V+E) \log V) \). For dense graphs (\( E \approx V^2 \)), it becomes \( O(V^2 \log V) \).             |
+
+---
+
+### **Explanation of Kruskal’s and Prim’s Complexity**:
+
+1. **Kruskal's Algorithm**:
+   - **Sorting edges** takes \( O(E \log E) \).
+   - **Union-Find** operations for \( E \) edges (almost constant time with path compression) contribute an additional factor of \( O(E \cdot \alpha(V)) \), where \( \alpha(V) \) is the inverse Ackermann function.
+   - Overall, \( O(E \log E) \) dominates.
+
+2. **Prim's Algorithm**:
+   - With a priority queue (binary heap), adding and extracting vertices takes \( O(\log V) \) time.
+   - For \( V \) vertices and \( E \) edges, the overall complexity becomes \( O((V+E) \log V) \).
+   - For dense graphs, \( E \approx V^2 \), so it can be \( O(V^2 \log V) \).
+
+
 ## [Codes of Graphs](https://colab.research.google.com/drive/1-rhyRbdmgN280hvVJtBNwewwix28Eioo?usp=sharing)
 # Graph Representation
 ## Adjacency Matrix
