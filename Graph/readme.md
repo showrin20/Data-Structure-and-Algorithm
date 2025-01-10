@@ -25,17 +25,52 @@
 
 ---
 
-### **Explanation of Kruskal’s and Prim’s Complexity**:
+# Preconditions and Use cases
+| **Algorithm**                     | **Graph Type**                                    | **Preconditions**                                                                                                             | **Use Cases**                                                                                                               |
+|------------------------------------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| **BFS (Breadth-First Search)**     | Any graph (directed/undirected, weighted/unweighted) | No special preconditions. Suitable for all graph types.                                                                      | - Finding shortest paths in **unweighted** graphs. <br> - Level-order traversal. <br> - Checking connectivity.              |
+| **DFS (Depth-First Search)**       | Any graph (directed/undirected, weighted/unweighted) | No special preconditions. Suitable for all graph types.                                                                      | - Cycle detection. <br> - Pathfinding. <br> - Topological sort. <br> - Checking connectivity or reachability.              |
+| **Topological Sort**               | Directed Acyclic Graph (DAG)                     | The graph **must be a DAG**. Cyclic graphs cannot have a valid topological ordering.                                         | - Scheduling tasks with dependencies (e.g., job scheduling). <br> - Dependency resolution in software packages.            |
+| **Strongly Connected Components**  | Directed graph                                   | No special preconditions. Works on all directed graphs.                                                                      | - Identifying strongly connected components in directed graphs. <br> - Solving 2-SAT problems.                             |
+| **Dijkstra's Algorithm**           | Weighted graph (directed or undirected)          | - Edge weights must be **non-negative**. <br> - Suitable for single-source shortest path calculation.                        | - Finding shortest paths in **non-negative weighted graphs**. <br> - GPS navigation. <br> - Network routing algorithms.     |
+| **Bellman-Ford Algorithm**         | Weighted graph (directed or undirected)          | - Can handle **negative edge weights**, but not negative weight cycles. <br> - Suitable for single-source shortest path.     | - Shortest path calculation with negative weights. <br> - Detecting negative weight cycles.                                |
+| **Kruskal's Algorithm**            | Weighted, connected, undirected graph            | - The graph must be **connected**. <br> - Works on undirected graphs only.                                                  | - Minimum Spanning Tree (MST) construction for cost optimization. <br> - Designing efficient network layouts.              |
+| **Prim's Algorithm**               | Weighted, connected, undirected graph            | - The graph must be **connected**. <br> - Works on undirected graphs.                                                       | - Minimum Spanning Tree (MST) construction. <br> - Power grid or road network design.                                      |
 
-1. **Kruskal's Algorithm**:
-   - **Sorting edges** takes \( O(E \log E) \).
-   - **Union-Find** operations for \( E \) edges (almost constant time with path compression) contribute an additional factor of \( O(E \cdot \alpha(V)) \), where \( \alpha(V) \) is the inverse Ackermann function.
-   - Overall, \( O(E \log E) \) dominates.
+---
 
-2. **Prim's Algorithm**:
-   - With a priority queue (binary heap), adding and extracting vertices takes \( O(\log V) \) time.
-   - For \( V \) vertices and \( E \) edges, the overall complexity becomes \( O((V+E) \log V) \).
-   - For dense graphs, \( E \approx V^2 \), so it can be \( O(V^2 \log V) \).
+### **Detailed Use Cases:**
+
+1. **BFS**:
+   - Best for finding the shortest path in **unweighted** graphs (e.g., solving maze problems).
+   - Useful in level-based problems like finding the shortest path in a grid.
+
+2. **DFS**:
+   - Often used in problems involving connectivity, backtracking, or cycle detection.
+   - Forms the foundation for algorithms like Topological Sort, SCCs, and others.
+
+3. **Topological Sort**:
+   - Crucial for task scheduling where dependencies exist, such as determining build orders in CI/CD pipelines.
+
+4. **Strongly Connected Components**:
+   - Helps break down directed graphs into strongly connected subgraphs.
+   - Used in compiler optimization and circuit design.
+
+5. **Dijkstra's Algorithm**:
+   - Common in GPS and routing applications.
+   - Used in finding the shortest path for network packets or navigation systems.
+
+6. **Bellman-Ford Algorithm**:
+   - Preferred for graphs with **negative edge weights**, e.g., economic or financial graphs with gain/loss cycles.
+   - Detects negative weight cycles.
+
+7. **Kruskal’s Algorithm**:
+   - Used in MST construction for cost-saving designs in road or communication networks.
+   - Performs well in sparse graphs due to sorting of edges.
+
+8. **Prim’s Algorithm**:
+   - Better suited for dense graphs compared to Kruskal’s.
+   - Used for MST construction in infrastructure networks like electric grids or water supply systems.
 
 
 ## [Codes of Graphs](https://colab.research.google.com/drive/1-rhyRbdmgN280hvVJtBNwewwix28Eioo?usp=sharing)
