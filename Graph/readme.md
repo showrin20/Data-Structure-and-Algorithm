@@ -14,17 +14,16 @@
 
 
 
-| Algorithm                        | Steps                                  | Time Complexity               | Explanation                                                                                     |
-|----------------------------------|----------------------------------------|-------------------------------|-------------------------------------------------------------------------------------------------|
-| **Breadth-First Search (BFS)**   | Explore graph level by level          | \(O(V + E)\)                 | Visits all vertices and edges, processing each vertex once.                                    |
-| **Depth-First Search (DFS)**     | Explore graph as deep as possible     | \(O(V + E)\)                 | Visits all vertices and edges, processing each vertex once.                                    |
-| **Topological Sort**              | Order vertices in a DAG               | \(O(V + E)\)                 | Uses DFS or Kahn's algorithm, processing each vertex and edge.                                 |
-| **Strongly Connected Components** | Find SCCs in a directed graph         | \(O(V + E)\)                 | Uses Kosaraju’s or Tarjan’s algorithm, processing each vertex and edge.                        |
-| **Dijkstra's Algorithm**          | Find shortest paths in a weighted graph| \(O((V + E) \log V)\)       | Uses a priority queue to update distances, focusing on the smallest current distance.           |
-| **Kruskal's Algorithm**          | Find Minimum Spanning Tree            | \(O(E \log E)\)              | Dominated by sorting edges, with union-find operations to manage cycles.                       |
-| **Bellman-Ford Algorithm**       | Find shortest paths allowing negative weights| \(O(V \cdot E)\)       | Repeatedly relaxes all edges, can detect negative weight cycles.                               |
-| **Prim's Algorithm**             | Find Minimum Spanning Tree            | \(O((V + E) \log V)\)       | Starts from an arbitrary vertex and adds edges with minimum weights to form the MST.           |
-
+| **Algorithm**                     | **Best Case**          | **Average Case**       | **Worst Case**          | **Explanation**                                                                                                                                      |
+|------------------------------------|------------------------|------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **BFS (Breadth-First Search)**     | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | BFS visits each vertex and edge exactly once in an adjacency list. \( V \) is vertices, and \( E \) is edges.                                        |
+| **DFS (Depth-First Search)**       | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | Similar to BFS, DFS visits each vertex and edge once but uses recursion or a stack.                                                                 |
+| **Topological Sort**               | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | Performed using DFS. Requires \( O(V+E) \) to visit all nodes and edges in a Directed Acyclic Graph (DAG).                                           |
+| **Strongly Connected Components**  | \( O(V+E) \)          | \( O(V+E) \)          | \( O(V+E) \)           | Performed using two DFS passes (e.g., Kosaraju's or Tarjan's algorithm). Each DFS is \( O(V+E) \).                                                  |
+| **Dijkstra's Algorithm**           | \( O((V+E)log V)) | \( O((V+E)log V)) | \( O((V+E)log V))  | Using a priority queue, the time complexity is \( O((V+E) \log V) \). For dense graphs (\( E \approx V^2 \)), it becomes \( O(V^2 \log V) \).         |
+| **Bellman-Ford Algorithm**         | \( O(VE) \)           | \( O(VE) \)           | \( O(VE) \)            | Iterates \( V-1 \) times over all \( E \) edges to relax distances. Works well for graphs with negative weights.                                     |
+| **Kruskal's Algorithm**            | \( O(E \log E) \)     | \( O(E \log E) \)     | \( O(E \log E) \)      | Sorts edges by weight in \( O(E \log E) \) and uses a union-find data structure for detecting cycles, making it efficient for sparse graphs.          |
+| **Prim's Algorithm**               | \( O((V+E) \log V) \) | \( O((V+E) \log V) \) | \( O((V+E) \log V) \)  | With a priority queue, it finds the MST in \( O((V+E) \log V) \). For dense graphs (\( E \approx V^2 \)), it becomes \( O(V^2 \log V) \).             |
 ---
 
 
