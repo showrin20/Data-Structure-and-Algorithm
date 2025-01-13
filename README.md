@@ -5,6 +5,29 @@
 ## 2.[Data Structures and Algorithm Coding Ninjas](https://www.codingninjas.com/studio/guided-paths/data-structures-algorithms?utm_source=youtube&utm_medium=organic&utm_campaign=dsa_roadmap_20_apr)
 
 
+
+
+# [Common patterns used to solve LeetCode problems](#)
+
+1. **Two Pointers**  
+2. **Sorting**  
+3. **Hashing**  
+4. **Binary Search**  
+5. **Sliding Window**  
+6. **Backtracking**  
+7. **Greedy Algorithm**  
+8. **Divide and Conquer**  
+9. **Dynamic Programming**  
+10. **Depth-First Search (DFS)**  
+11. **Breadth-First Search (BFS)**  
+12. **Prefix Sum**  
+13. **Union-Find (Disjoint Set Union)**  
+14. **Bit Manipulation**  
+15. **Stack and Monotonic Stack**  
+
+
+
+
 ## Arrays & Strings
 1. Basic Array and String Questions
 2. Traversal Based Problems
@@ -163,6 +186,8 @@ print("Maximum Subarray Sum (Divide and Conquer):", max_subarray_divide_and_conq
 4. Shortest Path Algorithms
 5. Topological Sort
 6. Graphs in Matrix
+7. Strongly Connected Components
+
 
 ## Dynamic Programming
 1. Basic DP Concepts
