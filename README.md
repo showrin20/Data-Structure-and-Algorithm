@@ -28,13 +28,20 @@
 
 
 
-## Arrays & Strings
-1. Basic Array and String Questions
-2. Traversal Based Problems
-3. Rotation Based Problems
-4. Sliding Window
-5. Two Pointers
-6. Kadane's Algorithm
+## [Arrays](https://github.com/showrin20/BracU_Courses/blob/main/CSE220/Lab1.py)
+1. Shift Left k Cells  
+2. Rotate Left k Cells  
+3. Shift Right k Cells  
+4. Rotate Right k Cells  
+5. Remove an Element  
+6. Remove All Occurrences of a Particular Element  
+7. Splitting an Array  
+8. Max Bunch Count  
+9. Mean and Standard Deviation Calculation  
+10. Outlier Identification  
+
+
+## 11. Kadane's Algorithm
 
 ### **Maximum Subarray Problem**
 - **Problem Statement**: Find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.  
