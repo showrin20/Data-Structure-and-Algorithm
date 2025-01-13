@@ -38,10 +38,12 @@
 7. Splitting an Array  
 8. Max Bunch Count  
 9. Mean and Standard Deviation Calculation  
-10. Outlier Identification  
+10. Outlier Identification
+11. Dutch National Flag Algorithm
+12. Multidimensional Arrays
 
 
-## 11. Kadane's Algorithm
+## 13. Kadane's Algorithm
 
 ### **Maximum Subarray Problem**
 - **Problem Statement**: Find the contiguous subarray within a one-dimensional array of numbers that has the largest sum.  
@@ -70,8 +72,7 @@ def max_subarray(nums):
 arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 print("Maximum Subarray Sum:", max_subarray(arr))
 ```
-8. Dutch National Flag Algorithm
-9. Multidimensional Arrays
+
 
 ## Recursion and Backtracking
 1. Basic Recursion Questions
