@@ -359,3 +359,88 @@ Output: [-3, -2, -2, 1, 2, 3, 3, 4, 5, 6, 6]
 - Stable sorting for cases where duplicate ordering matters.
 
 By extending Counting Sort to handle negatives, the algorithm becomes versatile for broader use cases
+
+
+
+
+# **Bucket Sort Algorithm**  
+
+## **Introduction**  
+Bucket Sort is a **sorting algorithm** that distributes elements into multiple "buckets" and then sorts each bucket individually, either using another sorting algorithm or recursively applying bucket sort. It is particularly efficient when input values are **evenly distributed** over a range.  
+
+## **Algorithm Steps**  
+1. **Determine the bucket range**: Find the minimum and maximum values in the input array.  
+2. **Create buckets**: Divide the range into a fixed number of buckets.  
+3. **Distribute elements**: Place each element into the appropriate bucket.  
+4. **Sort individual buckets**: Use **Insertion Sort** or any other efficient sorting algorithm.  
+5. **Concatenate sorted buckets**: Merge the sorted values to form the final sorted array.  
+
+## **Complexity Analysis**  
+| Case          | Time Complexity  |  
+|--------------|----------------|  
+| Best Case    | \(O(n + k)\)   |  
+| Average Case | \(O(n + k)\)   |  
+| Worst Case   | \(O(n^2)\) (if all elements go into one bucket) |  
+
+Where:  
+- **n** is the number of elements,  
+- **k** is the number of buckets.  
+
+## **Implementation**  
+
+### **Python Code**  
+```python
+def bucket_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    min_val, max_val = min(arr), max(arr)
+    bucket_count = len(arr)  # Number of buckets
+    bucket_size = (max_val - min_val) / bucket_count + 1
+
+    buckets = [[] for _ in range(bucket_count)]
+
+    for num in arr:
+        index = int((num - min_val) / bucket_size)
+        buckets[index].append(num)
+
+    sorted_arr = []
+    for bucket in buckets:
+        sorted_arr.extend(sorted(bucket))  # Using Python's Timsort for sorting
+
+    return sorted_arr
+
+# Example usage
+arr = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
+sorted_arr = bucket_sort(arr)
+print(sorted_arr)
+```
+
+## **Example**  
+**Input:**  
+```bash
+arr = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
+```
+**Output:**  
+```bash
+[0.23, 0.25, 0.32, 0.42, 0.47, 0.51, 0.52]
+```
+
+## **Advantages**
+✅ **Fast** for uniformly distributed data.  
+✅ **Linear time complexity** in the best case.  
+✅ **Efficient for floating-point numbers.**  
+
+## **Disadvantages**
+❌ **Not suitable for small datasets.**  
+❌ **Worst case can degrade to \(O(n^2)\).**  
+❌ **Extra memory is needed for buckets.**  
+
+
+
+
+
+
+
+
+
